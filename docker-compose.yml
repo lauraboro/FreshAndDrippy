@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pwd
+      POSTGRES_DB: fad
+    ports:
+      - 5432:5432
