@@ -33,5 +33,5 @@ public class Rezept {
     private Set<Kategorie> kategories;
 
     @OneToMany(mappedBy = "rezept")
-    private Set<Zutat> zutats;
+    private Set<RezeptZutat> zutats;
 }
