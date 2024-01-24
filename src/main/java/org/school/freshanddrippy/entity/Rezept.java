@@ -32,11 +32,6 @@ public class Rezept {
     )
     private Set<Kategorie> kategories;
 
-    @ManyToMany
-    @JoinTable(
-            name = "rezept_zutat",
-            joinColumns = @JoinColumn(name = "rezept_id"),
-            inverseJoinColumns = @JoinColumn(name = "zutat_id")
-    )
+    @OneToMany(mappedBy = "rezept")
     private Set<Zutat> zutats;
 }

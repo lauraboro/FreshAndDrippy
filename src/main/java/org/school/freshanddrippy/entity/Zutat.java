@@ -26,7 +26,7 @@ public class Zutat {
     private int bestand;
 
     @ManyToOne
-    @JoinColumn(name = "lieferant_id", nullable = false)
+    @JoinColumn(name = "lieferant_id", nullable = true)
     private Lieferant lieferant;
 
     @ManyToMany
