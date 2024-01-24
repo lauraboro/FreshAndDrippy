@@ -27,7 +27,4 @@ public class Adresse {
 
     @Column(name = "hausnummerzusatz", nullable = true, length = 1)
     private char hausnummerzusatz;
-
-    @Column(name = "vorname", nullable = false, length = 50)
-    private String vorname;
 }
