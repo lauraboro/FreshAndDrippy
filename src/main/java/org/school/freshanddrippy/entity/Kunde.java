@@ -22,6 +22,14 @@ public class Kunde {
     @Column(name = "vorname", nullable = false, length = 50)
     private String vorname;
 
+    @Column(name = "email", nullable = false, length = 100)
+    // TODO: Email Validator
+    private String email;
+
+    @Column(name = "telefonnummer", nullable = false, length = 9)
+    // TODO: Nummer Validator
+    private String telefonnummer;
+
     @ManyToMany
     @JoinTable(
             name = "kunde_adresse",
