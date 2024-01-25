@@ -1,32 +1,89 @@
+-- Inserting more Zutaten
 INSERT INTO zutat (name, einheit, nettopreis, bestand)
-VALUES ('Zucchini', 'Stück', 0.89, 100),
-       ('Zwiebel', 'Stück', 0.15, 50),
-       ('Tomate', 'Stück', 0.45, 50),
-       ('Schalotte', 'Stück', 0.20, 500),
-       ('Karotte', 'Stück', 0.30, 500),
-       ('Kartoffel', 'Stück', 0.15, 1500),
-       ('Rucola', 'Bund', 0.90, 10),
-       ('Lauch', 'Stück', 1.2, 35),
-       ('Knoblauch', 'Stück', 0.25, 250),
-       ('Basilikum', 'Bund', 1.3, 10),
-       ('Süßkartoffel', 'Stück', 2.0, 200),
-       ('Schnittlauch', 'Bund', 0.9, 10),
-       ('Apfel', 'Stück', 1.2, 750),
-       ('Hafermilch', 'Liter', 1.5, 50),
-       ('Mozzarella', 'Packung', 3.5, 20),
-       ('Butter', 'Stück', 3.0, 50),
-       ('Ei', 'Stück', 0.4, 300);
+VALUES
+    ('Zucchini', 'Stück', 0.89, 100),
+    ('Zwiebel', 'Stück', 0.15, 50),
+    ('Tomate', 'Stück', 0.45, 50),
+    ('Schalotte', 'Stück', 0.20, 500),
+    ('Karotte', 'Stück', 0.30, 500),
+    ('Kartoffel', 'Stück', 0.15, 1500),
+    ('Rucola', 'Bund', 0.90, 10),
+    ('Lauch', 'Stück', 1.2, 35),
+    ('Knoblauch', 'Stück', 0.25, 250),
+    ('Basilikum', 'Bund', 1.3, 10),
+    ('Süßkartoffel', 'Stück', 2.0, 200),
+    ('Schnittlauch', 'Bund', 0.9, 10),
+    ('Apfel', 'Stück', 1.2, 750),
+    ('Hafermilch', 'Liter', 1.5, 50),
+    ('Mozzarella', 'Packung', 3.5, 20),
+    ('Butter', 'Stück', 3.0, 50),
+    ('Ei', 'Stück', 0.4, 300),
+    ('Paprika', 'Stück', 0.75, 50),
+    ('Olivenöl', 'Liter', 5.0, 30),
+    ('Hähnchenbrust', 'Stück', 4.5, 25),
+    ('Linsen', 'Gramm', 1.0, 500),
+    ('Quinoa', 'Gramm', 1.5, 300),
+    ('Schokolade', 'Stück', 2.0, 100);
 
+-- Inserting more Rezepte
 INSERT INTO rezept (beschreibung, name, zubereitungsdauer)
-VALUES ('koch mal gut', 'Ofenkartoffeln', '20 minutes'),
-       ('Schälen und kochen', 'Spaghetti', '60 minutes');
+VALUES
+    ('Köstliche Zucchinipfanne', 'Zucchinipfanne', '30 minutes'),
+    ('Vegane Gemüse-Lasagne', 'Gemüse-Lasagne', '45 minutes'),
+    ('Asiatische Nudelsuppe', 'Nudelsuppe', '40 minutes'),
+    ('Italienischer Caprese-Salat', 'Caprese-Salat', '15 minutes'),
+    ('Hähnchen mit Paprika', 'Hähnchen-Paprika', '40 minutes'),
+    ('Quinoa-Salat', 'Quinoa-Salat', '25 minutes'),
+    ('Schokoladenmuffins', 'Schoko-Muffins', '30 minutes');
 
+-- Inserting more Kategorien
 INSERT INTO kategorie (beschreibung, name)
-VALUES ('Mediterrane Köstlichkeiten, wie am Mittelmeer!', 'Mediterran'),
-       ('Keine tierischen Produkte.', 'Vegan'),
-       ('Keine Produkte, die Fleisch enthalten', 'Vegetarisch'),
-       ('Heiße den Orient in deinem Gaumen wilkommen (kein Kink Shaming)', 'Asiatisch'),
-       ('You have not mammad your last mia', 'Italienisch');
+VALUES
+    ('Saftige Fleischgerichte', 'Fleischhaltig'),
+    ('Süße Verführungen', 'Dessert'),
+    ('Leichte Salate', 'Salat'),
+    ('Proteinhaltige Vegane Gerichte', 'Proteinreich'),
+    ('Mediterrane Köstlichkeiten, wie am Mittelmeer!', 'Mediterran'),
+    ('Keine tierischen Produkte.', 'Vegan'),
+    ('Keine Produkte, die Fleisch enthalten', 'Vegetarisch'),
+    ('Heiße den Orient in deinem Gaumen wilkommen (kein Kink Shaming)', 'Asiatisch'),
+    ('You have not mammad your last mia', 'Italienisch');
+
+-- Inserting into mapping table rezept_kategorie
+-- Map Rezepte to Kategorien
+INSERT INTO rezept_kategorie (rezept_id, kategorie_id)
+VALUES
+    ((SELECT id FROM rezept WHERE name = 'Zucchinipfanne'), (SELECT id FROM kategorie WHERE name = 'Mediterran')),
+    ((SELECT id FROM rezept WHERE name = 'Gemüse-Lasagne'), (SELECT id FROM kategorie WHERE name = 'Vegan')),
+    ((SELECT id FROM rezept WHERE name = 'Nudelsuppe'), (SELECT id FROM kategorie WHERE name = 'Asiatisch')),
+    ((SELECT id FROM rezept WHERE name = 'Caprese-Salat'), (SELECT id FROM kategorie WHERE name = 'Italienisch')),
+    ((SELECT id FROM rezept WHERE name = 'Hähnchen-Paprika'), (SELECT id FROM kategorie WHERE name = 'Fleischhaltig')),
+    ((SELECT id FROM rezept WHERE name = 'Quinoa-Salat'), (SELECT id FROM kategorie WHERE name = 'Vegan')),
+    ((SELECT id FROM rezept WHERE name = 'Schoko-Muffins'), (SELECT id FROM kategorie WHERE name = 'Dessert'));
+
+-- Inserting into mapping table rezept_zutat
+-- Map Zutaten to Rezepte
+INSERT INTO rezept_zutat (rezept_id, zutat_id, menge)
+VALUES
+    ((SELECT id FROM rezept WHERE name = 'Zucchinipfanne'), (SELECT id FROM zutat WHERE name = 'Zucchini'), 2),
+    ((SELECT id FROM rezept WHERE name = 'Zucchinipfanne'), (SELECT id FROM zutat WHERE name = 'Tomate'), 3),
+    ((SELECT id FROM rezept WHERE name = 'Zucchinipfanne'), (SELECT id FROM zutat WHERE name = 'Rucola'), 1),
+    ((SELECT id FROM rezept WHERE name = 'Gemüse-Lasagne'), (SELECT id FROM zutat WHERE name = 'Karotte'), 4),
+    ((SELECT id FROM rezept WHERE name = 'Gemüse-Lasagne'), (SELECT id FROM zutat WHERE name = 'Kartoffel'), 300),
+    ((SELECT id FROM rezept WHERE name = 'Gemüse-Lasagne'), (SELECT id FROM zutat WHERE name = 'Süßkartoffel'), 2),
+    ((SELECT id FROM rezept WHERE name = 'Nudelsuppe'), (SELECT id FROM zutat WHERE name = 'Schalotte'), 2),
+    ((SELECT id FROM rezept WHERE name = 'Nudelsuppe'), (SELECT id FROM zutat WHERE name = 'Knoblauch'), 1),
+    ((SELECT id FROM rezept WHERE name = 'Nudelsuppe'), (SELECT id FROM zutat WHERE name = 'Basilikum'), 1),
+    ((SELECT id FROM rezept WHERE name = 'Caprese-Salat'), (SELECT id FROM zutat WHERE name = 'Tomate'), 4),
+    ((SELECT id FROM rezept WHERE name = 'Caprese-Salat'), (SELECT id FROM zutat WHERE name = 'Apfel'), 200),
+    ((SELECT id FROM rezept WHERE name = 'Caprese-Salat'), (SELECT id FROM zutat WHERE name = 'Hafermilch'), 1.5),
+    ((SELECT id FROM rezept WHERE name = 'Hähnchen-Paprika'), (SELECT id FROM zutat WHERE name = 'Hähnchenbrust'), 2),
+    ((SELECT id FROM rezept WHERE name = 'Hähnchen-Paprika'), (SELECT id FROM zutat WHERE name = 'Paprika'), 3),
+    ((SELECT id FROM rezept WHERE name = 'Quinoa-Salat'), (SELECT id FROM zutat WHERE name = 'Quinoa'), 150),
+    ((SELECT id FROM rezept WHERE name = 'Quinoa-Salat'), (SELECT id FROM zutat WHERE name = 'Rucola'), 1),
+    ((SELECT id FROM rezept WHERE name = 'Schoko-Muffins'), (SELECT id FROM zutat WHERE name = 'Schokolade'), 200),
+    ((SELECT id FROM rezept WHERE name = 'Schoko-Muffins'), (SELECT id FROM zutat WHERE name = 'Butter'), 150);
+
 -- Insert customers
 WITH inserted_kunde AS (
     INSERT INTO kunde (name, vorname, geburtstag, telefonnummer, email)
