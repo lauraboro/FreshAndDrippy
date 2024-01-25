@@ -1,4 +1,5 @@
 /* styles.css */
+/* #42a62b   Green */
 
 body {
     font-family: Verdana, sans-serif;
@@ -10,9 +11,31 @@ body {
 #tabContainer {
     background-color: #42a62b;
     display: flex;
-    padding-left: 20px;
-    justify-content: left;
+    justify-content: space-between;
+    align-items: center;
     max-height: fit-content;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    width: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-user-drag: none;
+    background-color: #42a62b;
+    padding: 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.sticky {
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 #Home {
@@ -22,7 +45,38 @@ body {
     background-size: 120%;
     background-position: 50% 50%;
     width: 100%;
-    margin: 0 auto;
+}
+
+#LoginButton {
+    display: inline;
+    cursor: pointer;
+    float: left;
+    color: #fff;
+    margin-right: 50px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+
+    height: 80%;
+    padding: 12px 24px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#LoginButton:hover {
+    background-color: rgb(105, 216, 79);
+}
+
+#About {
+    text-align: center;
+    color: #fff;
+    background-color: #B5CBBB;
+}
+
+#About #AboutTitle {
+    align-content: center;
+    text-align: center;
+    background-color: #42a62b;
 }
 
 #Home img {
@@ -52,8 +106,8 @@ body {
 }
 
 ul {
+    margin: 0 0 0 20px;
     list-style-type: none;
-    margin: 0;
     padding: 0;
     width: 25%;
     overflow: auto; /* Enable scrolling if the sidenav has too much content */
@@ -77,17 +131,4 @@ li a {
 li a:hover {
     background-color: #69d84f;
     color: white;
-}
-
-button:hover {
-    background-color: #FCFFB2;
-}
-
-#app {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
 }
