@@ -17,12 +17,16 @@ body {
 
 #Home {
     position: relative;
+    background-image: url("../html/images/about-background.png");
+    background-repeat: no-repeat;
+    background-size: 120%;
+    background-position: 50% 50%;
     width: 100%;
     margin: 0 auto;
 }
 
 #Home img {
-    width: 100%;
+    width: 50%;
     height: 50%;
     display: block;
 }
