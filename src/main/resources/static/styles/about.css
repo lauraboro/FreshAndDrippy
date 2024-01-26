@@ -1,0 +1,13 @@
+#Main {
+    justify-content: space-between;
+    align-content: space-between;
+    display: flex;
+}
+
+#Main #MainText {
+    border: 2px solid #000;
+}
+
+#Main #Images {
+    border: 2px solid #000;
+}

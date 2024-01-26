@@ -18,6 +18,22 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.star {
+    position: absolute;
+    top: 50%;
+    width: 3%;
+    transform: translate(-50%, -50%);
+    -webkit-user-drag: none;
+}
+
+#star1 {
+    left: 38%;
+}
+
+#star2 {
+    left: 62%;
+}
+
 #logo {
     position: absolute;
     top: 0;
@@ -26,7 +42,7 @@ body {
     transform: translate(-50%, 0);
     -webkit-user-drag: none;
     background-color: #42a62b;
-    padding: 10px;
+    padding: 10px 30px 10px 30px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -40,7 +56,7 @@ body {
 
 #Home {
     position: relative;
-    background-image: url("../html/images/about-background.png");
+    background-image: url("../html/images/home-background.png");
     background-repeat: no-repeat;
     background-size: 120%;
     background-position: 50% 50%;
@@ -68,12 +84,20 @@ body {
 }
 
 #About {
+    background-image: url("../html/images/about-background.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50% 0;
+    width: 100%;
     text-align: center;
-    color: #fff;
-    background-color: #B5CBBB;
+    color: black;
 }
 
 #About #AboutTitle {
+    font-size: 36px;
+    font-weight: bold;
+    padding: 10px;
+    color: white;
     align-content: center;
     text-align: center;
     background-color: #42a62b;
@@ -131,4 +155,35 @@ li a {
 li a:hover {
     background-color: #69d84f;
     color: white;
+}
+
+#DailyRecipe {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.Recipe img {
+    border-radius: 10px;
+    padding: 5px;
+    -webkit-user-drag: none;
+}
+
+.Recipe #RecipeTitle {
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 15px;
+    text-decoration: underline;
+}
+
+.Recipe {
+    width: 750px;
+    height: 300px;
+    border-radius: 10px;
+    border: 3px solid black;
+    color: black;
+    display: flex;
+    margin: 5px;
+    justify-content: space-between;
+    background-color: white;
 }
