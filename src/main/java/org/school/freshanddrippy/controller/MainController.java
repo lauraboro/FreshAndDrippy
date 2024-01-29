@@ -1,9 +1,5 @@
 package org.school.freshanddrippy.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.school.freshanddrippy.entity.Rezept;
-import org.school.freshanddrippy.service.RezeptService;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.school.freshanddrippy.entity.Rezept;
 import org.school.freshanddrippy.service.RezeptService;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +15,6 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/api")
 public class MainController {
-
 
     private final RezeptService rezeptService;
 

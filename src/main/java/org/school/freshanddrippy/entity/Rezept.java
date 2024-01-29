@@ -63,12 +63,12 @@ public class Rezept {
         this.zubereitungsdauer = zubereitungsdauer;
     }
 
-    public String getBildURL() {
-        return bildURL;
+    public byte[] getBild() {
+        return bild;
     }
 
-    public void setBildURL(String bildURL) {
-        this.bildURL = bildURL;
+    public void setBildURL(byte[] bildURL) {
+        this.bild = bildURL;
     }
 
     public Set<Kategorie> getKategories() {
