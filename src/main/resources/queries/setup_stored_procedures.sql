@@ -3,14 +3,12 @@ CREATE OR REPLACE FUNCTION calculate_order_price(order_id INTEGER)
 DECLARE
     order_total NUMERIC;
 BEGIN
-
     SELECT COALESCE(SUM(z.nettopreis), 0) * 1.19 * 1.2 -- Add Mehrwertsteuer and margin
     INTO order_total
     FROM bestellung_rezept br
              JOIN rezept_zutat rz ON br.rezept_id = rz.rezept_id
              JOIN zutat z ON rz.zutat_id = z.id
     WHERE br.bestellung_id = order_id;
-
 
     UPDATE bestellung
     SET gesamtpreis = order_total
