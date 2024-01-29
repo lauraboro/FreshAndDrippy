@@ -21,8 +21,8 @@ public class Rezept {
     @Column(columnDefinition = "INTERVAL")
     private String zubereitungsdauer;
 
-    @Column(name = "bild_url", length = 500)
-    private String bildURL;
+    @Column(name = "bild", columnDefinition = "bytea")
+    private byte[] bild;
 
     @ManyToMany
     @JoinTable(
