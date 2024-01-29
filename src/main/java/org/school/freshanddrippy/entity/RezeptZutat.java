@@ -20,4 +20,28 @@ public class RezeptZutat {
 
     @Column(name = "menge")
     private int menge;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Zutat getZutat() {
+        return zutat;
+    }
+
+    public void setZutat(Zutat zutat) {
+        this.zutat = zutat;
+    }
+
+    public int getMenge() {
+        return menge;
+    }
+
+    public void setMenge(int menge) {
+        this.menge = menge;
+    }
 }
