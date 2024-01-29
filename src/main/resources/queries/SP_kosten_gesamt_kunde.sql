@@ -1,4 +1,4 @@
--- Geld, dass best. Kunde insgesamt bereits ausgegeben hat
+-- Geld, dass best. Kunde insgesamt bereits ausgegeben hat (Stored Procedure 1/3)
 -- Schritt 1: Erstelle eine Funktion, um den Gesamtbetrag für einen Kunden zu berechnen
 CREATE OR REPLACE FUNCTION gesamt_ausgaben(kunden_name text) RETURNS numeric AS $$
 DECLARE
