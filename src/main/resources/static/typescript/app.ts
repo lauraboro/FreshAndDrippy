@@ -1,6 +1,25 @@
 // app.ts
 
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("Contact popup loaded");
+    const openContactPopupButton = document.getElementById("OpenContactPopup");
+    const closeContactPopupButton = document.getElementById("CloseContactPopup");
+    const contactPopupContainer = document.getElementById("ContactPopupContainer");
+    const body = document.body;
+
+    if(openContactPopupButton && closeContactPopupButton && contactPopupContainer) {
+       openContactPopupButton.addEventListener("click", function () {
+          contactPopupContainer.style.display = "flex";
+          body.classList.add("no-scroll");
+       });
+       closeContactPopupButton.addEventListener("click", function () {
+           contactPopupContainer.style.display = "none";
+           body.classList.remove("no-scroll");
+       });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
     // Your application logic goes here
     console.log("Application loaded!");
 
@@ -43,8 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function animateText() {
-        console.log("animate");
-
         if(delay > 0) {
             delay--;
             return;
@@ -73,10 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
         setInterval(animateText, 100);
     }
 
-    return;
     // Example: Make a request to your backend endpoint
-    fetch("https://your-backend-api.com/api/data")
-        .then(response => response.json())
+    fetch("http://localhost:8080/api/data")
+        .then(response => response)
         .then(data => console.log(data))
         .catch(error => console.error("Error fetching data:", error));
 });

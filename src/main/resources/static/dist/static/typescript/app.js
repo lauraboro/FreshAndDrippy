@@ -1,6 +1,23 @@
 "use strict";
 // app.ts
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("Contact popup loaded");
+    var openContactPopupButton = document.getElementById("OpenContactPopup");
+    var closeContactPopupButton = document.getElementById("CloseContactPopup");
+    var contactPopupContainer = document.getElementById("ContactPopupContainer");
+    var body = document.body;
+    if (openContactPopupButton && closeContactPopupButton && contactPopupContainer) {
+        openContactPopupButton.addEventListener("click", function () {
+            contactPopupContainer.style.display = "flex";
+            body.classList.add("no-scroll");
+        });
+        closeContactPopupButton.addEventListener("click", function () {
+            contactPopupContainer.style.display = "none";
+            body.classList.remove("no-scroll");
+        });
+    }
+});
+document.addEventListener("DOMContentLoaded", function () {
     // Your application logic goes here
     console.log("Application loaded!");
     var words = ["delicious", "fresh", "drippy", "saucy", "nice", "yummy"];
@@ -36,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "your doorstep";
     }
     function animateText() {
-        console.log("animate");
         if (delay > 0) {
             delay--;
             return;
@@ -62,9 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
         animateText();
         setInterval(animateText, 100);
     }
-    return;
     // Example: Make a request to your backend endpoint
-    fetch("https://your-backend-api.com/api/data")
+    fetch("http://localhost:8080/api/data")
         .then(function (response) { return response.json(); })
         .then(function (data) { return console.log(data); })
         .catch(function (error) { return console.error("Error fetching data:", error); });
