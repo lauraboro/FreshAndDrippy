@@ -12,13 +12,22 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a>News</a></li>
-            <li><a>Contact</a></li>
+            <li><a id="OpenContactPopup">Contact</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
         <img src="images/star.png" id="star1" class="star"/>
         <img src="images/logo.png" id="logo"/>
         <img src="images/star.png" id="star2" class="star"/>
         <a id="LoginButton">Login</a>
+    </div>
+    <div id="ContactPopupContainer" class="popup-container">
+        <div id="ContactContent">
+            <span class="close" id="CloseContactPopup">&times;</span>
+            <h2>Write us an e-mail!</h2>
+            <a>It usually takes us around 3-5 business years to answer</a>
+            <input type="text" id="ContactText" placeholder="I fucking love your food!!!"/>
+            <a id="ContactButton">Send</a>
+        </div>
     </div>
     <div id="Home">
         <img src="images/home-background.png" style="visibility: hidden"/>
@@ -32,7 +41,7 @@
         <div id="AboutTitle">
             <a>We are fresh! We are drippy!</a>
         </div>
-        <p>
+        <p style="padding-top: 15px">
             We deliver fresh ingredients alongside nice recipes directly to your doorstep by the click of a button! <br>
             Checkout our new daily offers right now!
         </p>
@@ -48,7 +57,6 @@
                     <a id="RecipeTitle">Rezept</a>
                     <p id="RecipeDescription">Dieses wundertolle Rezept eines wundertollen 5 Sterne-Kochs sorgt bei der Zubereitung für umwogene Freude und bei Konsum für einen gewaltigen Gaumenschmaus</p>
                 </div>
-
             </div>
         </div>
     </div>
