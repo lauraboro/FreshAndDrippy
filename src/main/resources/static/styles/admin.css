@@ -98,6 +98,7 @@ li a:hover {
     padding: 0 5px 5px 5px;
     display: flex;
     align-content: center;
+    flex-direction: column;
 }
 
 .CategoryEntry {
@@ -111,21 +112,23 @@ li a:hover {
     padding-right: 5px;
     align-items: center;
     height: auto;
-    width: 100%;
+    width: auto;
     margin-top:5px;
 }
 
 .CategoryName {
     width: 20%;
+    text-align: center;
 }
 
 .CategoryDescription {
     width: 80%;
-    height: 100%;
+    margin: 0;
+    min-height: 50px;
     display: flex;
     align-items: center;
     border-left: 2px solid black;
-    padding-left: 5px;
+    padding-left: 20px;
 }
 
 #CategoryList #AddCategoryButton {

@@ -2,10 +2,10 @@
 // app.ts
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Contact popup loaded");
-    var openContactPopupButton = document.getElementById("OpenContactPopup");
-    var closeContactPopupButton = document.getElementById("CloseContactPopup");
-    var contactPopupContainer = document.getElementById("ContactPopupContainer");
-    var body = document.body;
+    const openContactPopupButton = document.getElementById("OpenContactPopup");
+    const closeContactPopupButton = document.getElementById("CloseContactPopup");
+    const contactPopupContainer = document.getElementById("ContactPopupContainer");
+    const body = document.body;
     if (openContactPopupButton && closeContactPopupButton && contactPopupContainer) {
         openContactPopupButton.addEventListener("click", function () {
             contactPopupContainer.style.display = "flex";
@@ -20,21 +20,21 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     // Your application logic goes here
     console.log("Application loaded!");
-    var words = ["delicious", "fresh", "drippy", "saucy", "nice", "yummy"];
-    var currentWordIndex = 0;
-    var currentText = words[0];
-    var currentIndex = 0;
-    var currentlyDeleting = false;
-    var delay = 0;
+    const words = ["delicious", "fresh", "drippy", "saucy", "nice", "yummy"];
+    let currentWordIndex = 0;
+    let currentText = words[0];
+    let currentIndex = 0;
+    let currentlyDeleting = false;
+    let delay = 0;
     // Example: Modify styles using TypeScript
-    var homeTextElement = document.getElementById("HomeText");
-    var homeImageElement = document.getElementById("Home");
+    const homeTextElement = document.getElementById("HomeText");
+    const homeImageElement = document.getElementById("Home");
     if (homeImageElement) {
         updateImagePosition();
         window.addEventListener("scroll", updateImagePosition);
     }
     function updateImagePosition() {
-        var scrollPos = window.scrollY;
+        const scrollPos = window.scrollY;
         // @ts-ignore
         homeImageElement.style.backgroundPositionY = Math.min(50 + (scrollPos / 10), 100) + "%";
     }
@@ -78,9 +78,4 @@ document.addEventListener("DOMContentLoaded", function () {
         animateText();
         setInterval(animateText, 100);
     }
-    // Example: Make a request to your backend endpoint
-    fetch("http://localhost:8080/api/data")
-        .then(function (response) { return response.json(); })
-        .then(function (data) { return console.log(data); })
-        .catch(function (error) { return console.error("Error fetching data:", error); });
 });
