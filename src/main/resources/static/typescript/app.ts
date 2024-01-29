@@ -35,11 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const homeTextElement = document.getElementById("HomeText");
     const homeImageElement = document.getElementById("Home");
 
-    if(homeImageElement) {
+    if (homeImageElement) {
         updateImagePosition();
 
         window.addEventListener("scroll", updateImagePosition);
     }
+
     function updateImagePosition() {
         const scrollPos = window.scrollY;
         // @ts-ignore
@@ -47,14 +48,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function writeText() {
-        if(currentIndex < currentText.length)
+        if (currentIndex < currentText.length)
             currentIndex++;
         // @ts-ignore
         homeTextElement.innerHTML = "Order " + currentText.slice(0, currentIndex) + " food to<br>" +
             "your doorstep";
     }
+
     function deleteText() {
-        if(currentIndex > 0)
+        if (currentIndex > 0)
             currentIndex--;
         // @ts-ignore
         homeTextElement.innerHTML = "Order " + currentText.slice(0, currentIndex) + " food to<br>" +
@@ -67,9 +69,9 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        if(currentlyDeleting) {
+        if (currentlyDeleting) {
             deleteText();
-            if(currentIndex == 0) {
+            if (currentIndex == 0) {
                 currentWordIndex = (currentWordIndex + 1) % words.length;
                 currentText = words[currentWordIndex];
                 delay = 2;
@@ -77,22 +79,16 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         } else {
             writeText();
-            if(currentIndex == currentText.length) {
+            if (currentIndex == currentText.length) {
                 currentlyDeleting = true;
                 delay = 20;
             }
         }
     }
 
-    if(homeTextElement) {
+    if (homeTextElement) {
         animateText();
 
         setInterval(animateText, 100);
     }
-
-    // Example: Make a request to your backend endpoint
-    fetch("http://localhost:8080/api/data")
-        .then(response => response)
-        .then(data => console.log(data))
-        .catch(error => console.error("Error fetching data:", error));
 });
