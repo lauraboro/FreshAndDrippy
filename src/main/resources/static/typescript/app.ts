@@ -7,15 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const contactPopupContainer = document.getElementById("ContactPopupContainer");
     const body = document.body;
 
-    if(openContactPopupButton && closeContactPopupButton && contactPopupContainer) {
-       openContactPopupButton.addEventListener("click", function () {
-          contactPopupContainer.style.display = "flex";
-          body.classList.add("no-scroll");
-       });
-       closeContactPopupButton.addEventListener("click", function () {
-           contactPopupContainer.style.display = "none";
-           body.classList.remove("no-scroll");
-       });
+    if (openContactPopupButton && closeContactPopupButton && contactPopupContainer) {
+        openContactPopupButton.addEventListener("click", function () {
+            contactPopupContainer.style.display = "flex";
+            body.classList.add("no-scroll");
+        });
+        closeContactPopupButton.addEventListener("click", function () {
+            contactPopupContainer.style.display = "none";
+            body.classList.remove("no-scroll");
+        });
     }
 });
 
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function animateText() {
-        if(delay > 0) {
+        if (delay > 0) {
             delay--;
             return;
         }
