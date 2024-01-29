@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-tool</title>
+    <link rel="stylesheet" href="../styles/admin.css">
+    <!--<script src="../dist/static/typescript/app.js"></script> -->
+</head>
+<body>
+    <div id="tabContainer" class="sticky">
+        <ul>
+            <li><a href="admin-recipes.html">Recipes</a></li>
+            <li><a href="admin-ingredients.html">Ingredients</a></li>
+            <li><a href="admin-categories.html" class="selectedTab">Categories</a></li>
+            <li><a href="admin-restrictions.html">Restrictions</a></li>
+        </ul>
+        <a id="BackToMainPageButton" href="index.html">Back</a>
+    </div>
+    <div id="CategoriesMenu">
+        <h1 style="align-self: center">Categories</h1>
+        <div id="CategoryList">
+            <div id="CategoryListContent">
+                <div class="CategoryEntry">
+                    <a class="CategoryName">Mediterranean</a>
+                    <p class="CategoryDescription">Food that originates from the mediterranean region</p>
+                </div>
+            </div>
+            <div id="CategoryEditBar">
+                <a id="AddCategoryButton">Add Category</a>
+            </div>
+        </div>
+    </div>
+</body>
