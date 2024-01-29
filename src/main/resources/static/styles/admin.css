@@ -1,0 +1,66 @@
+body {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.sticky {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+#tabContainer {
+    background-color: #42a62b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: fit-content;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+ul {
+    display: flex;
+    float: left;
+    margin: 0 0 0 20px;
+    list-style-type: none;
+    padding: 0;
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+li a {
+    display: inline;
+    cursor: pointer;
+    float: left;
+    color: #fff;
+    padding: 18px 16px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+li a:hover {
+    background-color: #69d84f;
+    color: white;
+}
+
+#BackToMainPageButton {
+    display: inline;
+    cursor: pointer;
+    float: left;
+    color: #fff;
+    margin-right: 50px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+
+    height: 80%;
+    padding: 12px 24px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#BackToMainPageButton:hover {
+    background-color: #69d84f;
+    color: white;
+}
