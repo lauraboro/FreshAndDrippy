@@ -21,8 +21,8 @@ public class Rezept {
     @Column(columnDefinition = "INTERVAL")
     private String zubereitungsdauer;
 
-    @Column(name = "bild", columnDefinition = "bytea")
-    private byte[] bild;
+    @Column(name = "bild", length = 300)
+    private String bild;
 
     @ManyToMany
     @JoinTable(name = "rezept_kategorie", joinColumns = @JoinColumn(name = "rezept_id"), inverseJoinColumns = @JoinColumn(name = "kategorie_id"))
@@ -63,11 +63,11 @@ public class Rezept {
         this.zubereitungsdauer = zubereitungsdauer;
     }
 
-    public byte[] getBild() {
+    public String getBild() {
         return bild;
     }
 
-    public void setBildURL(byte[] bildURL) {
+    public void setBildURL(String bildURL) {
         this.bild = bildURL;
     }
 

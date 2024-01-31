@@ -26,5 +26,5 @@ public class Adresse {
     private String land;
 
     @Column(name = "hausnummerzusatz", nullable = true, length = 1)
-    private char hausnummerzusatz;
+    private Character hausnummerzusatz;
 }
