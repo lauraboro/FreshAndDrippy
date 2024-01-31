@@ -18,4 +18,9 @@ public class RezeptService {
 
         return rezeptRepository.findAll();
     }
+
+    public Rezept getRandomRezept() {
+
+        return rezeptRepository.findRandomRezept();
+    }
 }
