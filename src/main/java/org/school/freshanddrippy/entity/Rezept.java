@@ -18,8 +18,8 @@ public class Rezept {
     @Column(columnDefinition = "TEXT")
     private String beschreibung;
 
-    @Column(columnDefinition = "INTERVAL")
-    private String zubereitungsdauer;
+    @Column(columnDefinition = "BIGINT")
+    private int zubereitungsdauer;
 
     @Column(name = "bild", columnDefinition = "bytea")
     private byte[] bild;
@@ -28,7 +28,7 @@ public class Rezept {
     @JoinTable(name = "rezept_kategorie", joinColumns = @JoinColumn(name = "rezept_id"), inverseJoinColumns = @JoinColumn(name = "kategorie_id"))
     private Set<Kategorie> kategories;
 
-    @OneToMany(mappedBy = "rezept")
+    @OneToMany(mappedBy = "rezept", cascade = CascadeType.ALL)
     private Set<RezeptZutat> zutats;
 
     public long getId() {
@@ -55,11 +55,11 @@ public class Rezept {
         this.beschreibung = beschreibung;
     }
 
-    public String getZubereitungsdauer() {
+    public int getZubereitungsdauer() {
         return zubereitungsdauer;
     }
 
-    public void setZubereitungsdauer(String zubereitungsdauer) {
+    public void setZubereitungsdauer(int zubereitungsdauer) {
         this.zubereitungsdauer = zubereitungsdauer;
     }
 

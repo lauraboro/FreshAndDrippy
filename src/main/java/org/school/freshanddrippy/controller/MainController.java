@@ -1,14 +1,12 @@
 package org.school.freshanddrippy.controller;
 
+import org.school.freshanddrippy.dto.NeuesRezeptRequest;
 import org.school.freshanddrippy.entity.Rezept;
+import org.school.freshanddrippy.entity.Zutat;
 import org.school.freshanddrippy.service.RezeptService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.school.freshanddrippy.service.ZutatService;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -17,13 +15,25 @@ import java.util.List;
 public class MainController {
 
     private final RezeptService rezeptService;
+    private final ZutatService zutatService;
 
-    public MainController(RezeptService rezeptService) {
+    public MainController(RezeptService rezeptService, ZutatService zutatService) {
         this.rezeptService = rezeptService;
+        this.zutatService = zutatService;
     }
 
     @GetMapping("/allRezepte")
     public List<Rezept> getAllRezepte() {
         return rezeptService.getAllRezepte();
+    }
+
+    @GetMapping("/allZutaten")
+    public List<Zutat> getAllZutaten() {
+        return zutatService.getAllZutaten();
+    }
+
+    @PostMapping("/rezepte/createRezept")
+    public void createNeuesRezept(@RequestBody NeuesRezeptRequest request) {
+        rezeptService.createRezept(request);
     }
 }

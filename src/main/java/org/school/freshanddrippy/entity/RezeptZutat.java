@@ -44,4 +44,12 @@ public class RezeptZutat {
     public void setMenge(int menge) {
         this.menge = menge;
     }
+
+    public Rezept getRezept() {
+        return rezept;
+    }
+
+    public void setRezept(Rezept rezept) {
+        this.rezept = rezept;
+    }
 }

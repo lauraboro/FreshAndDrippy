@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Admin-tool</title>
+    <link href="../styles/admin.css" rel="stylesheet">
+    <link href="../styles/admin-recipes.css" rel="stylesheet">
+    <script src="../dist/static/typescript/adminRecipes.js"></script>
+</head>
+<body>
+<div class="sticky" id="tabContainer">
+    <ul>
+        <li><a href="admin-recipes.html">Recipes</a></li>
+        <li><a href="admin-ingredients.html">Ingredients</a></li>
+        <li><a href="admin-categories.html">Categories</a></li>
+        <li><a href="admin-restrictions.html">Restrictions</a></li>
+    </ul>
+    <a href="index.html" id="BackToMainPageButton">Back</a>
+</div>
+
+<div class="container">
+    <h2>Add New Recipe</h2>
+    <form>
+        <div class="row">
+            <div class="col-25">
+                <label for="name">Name</label>
+            </div>
+            <div class="col-75">
+                <input id="name" name="name" placeholder="Recipe name" type="text">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="duration">Duration (in minutes)</label>
+            </div>
+            <div class="col-75">
+                <input id="duration" min="0" name="duration" placeholder="Duration" type="number">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="description">Description</label>
+            </div>
+            <div class="col-75">
+                <textarea id="description" name="description" placeholder="Describe the recipe..."
+                          style="height:200px"></textarea>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <!-- Ingredient Section -->
+            <div class="col-25">
+                <label for="Ingredients">Ingredients</label>
+            </div>
+            <div class="col-75">
+                <button class="button" id="Ingredients" onclick="openIngredientPopUp()" type="button">+</button>
+                <div id="selectedIngredients" style="float: right"></div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Category Section -->
+            <div class="col-25">
+                <label for="Categories">Categories</label>
+            </div>
+            <div class="col-75">
+                <button class="button" id="Categories" onclick="addCategoriesInput()" type="button">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <button class="button" onclick="saveRecipe()" type="button">Submit</button>
+        </div>
+    </form>
+
+
+    <!-- Popup for Ingredients -->
+    <div id="ingredientPopup">
+        <h2>Ingredients</h2>
+        <div id="ingredientList"></div>
+        <button class="button" onclick="saveIngredients()" type="button">Add Ingredients to Recipe</button>
+        <button class="button" onclick="closeIngredientPopUp()" type="button">Close</button>
+    </div>
+</div>
+</body>

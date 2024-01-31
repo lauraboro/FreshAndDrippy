@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 interface Rezept {
     name: string;
     beschreibung: string;
-    zubereitungsdauer: string;
+    zubereitungsdauer: number;
 }
 
 
