@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface KategorieRepository extends JpaRepository<Kategorie, Long> {
 
-    @Query("SELECT k FROM Kategorie k")
+    @Query("SELECT k from Kategorie k order by k.id")
     List<Kategorie> findAll();
 }

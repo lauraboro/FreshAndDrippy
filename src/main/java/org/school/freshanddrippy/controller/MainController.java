@@ -1,14 +1,12 @@
 package org.school.freshanddrippy.controller;
 
+import org.school.freshanddrippy.dto.KategorieRequest;
 import org.school.freshanddrippy.entity.Kategorie;
 import org.school.freshanddrippy.entity.Rezept;
 import org.school.freshanddrippy.service.RezeptService;
 import org.school.freshanddrippy.service.KategorieService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -34,5 +32,12 @@ public class MainController {
 	@GetMapping("/allKategorien")
 	public List<Kategorie> getAllKategorien() {
 		return kategorieService.getAllKategorien();
+	}
+
+	@PostMapping("/sendKategorieUpdate")
+	public ResponseEntity<String> receiveKategorie(@RequestBody KategorieRequest categoryRequest) {
+		kategorieService.saveKategorie(categoryRequest);
+
+		return ResponseEntity.ok("Kategorie saved");
 	}
 }
