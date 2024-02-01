@@ -40,4 +40,9 @@ public class MainController {
 
 		return ResponseEntity.ok("Kategorie saved");
 	}
+
+    @GetMapping("/randomRezept")
+    public Rezept getRandomRezept(){
+        return rezeptService.getRandomRezept();
+    }
 }
