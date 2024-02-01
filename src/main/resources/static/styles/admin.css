@@ -13,7 +13,7 @@ body {
 .close {
     position: absolute;
     color:black;
-    top: 5%;
+    top: 18%;
     right: 22%;
     font-size: 60px;
     width: 60px;
@@ -220,7 +220,7 @@ li a:hover {
 
 #CategoryEditDescriptionText {
     width: 80%;
-    height: 30%;
+    height: 100%;
     padding: 5px;
     font-family: Verdana, sans-serif;
 }
@@ -231,7 +231,7 @@ li a:hover {
 
 #CategoryEditContent {
     width: 50%;
-    height: 80%;
+    height: 50%;
     color:black;
     background-color: white;
     border: 2px solid black;
