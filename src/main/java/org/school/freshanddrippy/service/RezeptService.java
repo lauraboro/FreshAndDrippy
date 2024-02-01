@@ -1,7 +1,9 @@
 package org.school.freshanddrippy.service;
 
+import org.school.freshanddrippy.dto.KategorieRequest;
 import org.school.freshanddrippy.dto.NeuesRezeptRequest;
 import org.school.freshanddrippy.dto.ZutatMengeDto;
+import org.school.freshanddrippy.entity.Kategorie;
 import org.school.freshanddrippy.entity.Rezept;
 import org.school.freshanddrippy.entity.RezeptZutat;
 import org.school.freshanddrippy.entity.Zutat;
@@ -49,16 +51,14 @@ public class RezeptService {
             }
             rezept.setZutats(rezeptZutaten);
 
+            Set<Kategorie> kategorien = new HashSet<>();
+            for (KategorieRequest kategorieRequest : request.getKategorien()) {
+                Kategorie kategorie = new Kategorie();
+                kategorie.setId(kategorieRequest.getId());
 
-//        // Setzen Sie Kategorien
-//        Set<Kategorie> kategorien = new HashSet<>();
-//        for (Long kategorieId : request.getKategorien()) {
-//            Kategorie kategorie = new Kategorie();
-//            kategorie.setId(kategorieId); // Annahme: Die Kategorie existiert bereits in der Datenbank
-//
-//            kategorien.add(kategorie);
-//        }
-//        rezept.setKategories(kategorien);
+                kategorien.add(kategorie);
+            }
+            rezept.setKategories(kategorien);
 
             rezeptRepository.save(rezept);
             return new ResponseEntity<>(request, HttpStatus.CREATED);

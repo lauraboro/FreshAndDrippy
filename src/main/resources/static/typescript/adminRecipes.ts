@@ -1,5 +1,5 @@
 let collectedIngredients: { zutatId: number; menge: number; name: string; einheit: string }[] = [];
-let collectedCategories: { kategorieId: number; name: string; beschreibung: string }[] = [];
+let collectedCategories: { id: number; name: string; beschreibung: string }[] = [];
 
 interface Zutat {
     id: number;
@@ -23,12 +23,11 @@ function saveRecipe() {
         duration: rezeptDuration.value,
         description: rezeptDescription.value,
         zutaten: collectedIngredients,
-        kategorien: [0]
+        kategorien: collectedCategories
     };
     let rezeptRequestJson = JSON.stringify(neuesRezeptRequest);
-    console.log(rezeptRequestJson);
 
-    fetch('http://localhost:8080/api/rezepte/createRezept', {
+    fetch('http://localhost:8080/api/createRezept', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -48,7 +47,7 @@ function saveRecipe() {
 function saveIngredients() {
     collectedIngredients = [];
 
-    const ingredientRows = document.querySelectorAll('.ingredient-row');
+    const ingredientRows = document.querySelectorAll('.popup-row');
 
     ingredientRows.forEach(row => {
         const label = row.querySelector('label')!;
@@ -77,7 +76,6 @@ function displayCollectedIngredients() {
 
     if (collectedIngredientsList) {
         collectedIngredientsList.innerHTML = '';
-
         collectedIngredients.forEach(collectedIngredient => {
             const ingredientRow = document.createElement('div');
             ingredientRow.textContent = `${collectedIngredient.name} ${collectedIngredient.menge} ${collectedIngredient.einheit}`;
@@ -94,8 +92,6 @@ function openIngredientPopUp() {
             const ingredientList = document.getElementById('ingredientList');
             if (ingredientList) {
                 ingredientList.innerHTML = '';
-
-                console.log(data);
 
                 data.forEach(ingredient => {
                     const ingredientRow = document.createElement('div');
@@ -144,7 +140,7 @@ function openCategoriesPopUp() {
         .then((data: Kategorie[]) => {
             const categoryList = document.getElementById('categoryList');
             if (categoryList) {
-                categoryList.innerHTML = '';
+                categoryList.innerHTML = ''
 
                 console.log(data);
 
@@ -154,6 +150,7 @@ function openCategoriesPopUp() {
 
                     const label = document.createElement('label');
                     label.dataset.id = String(category.id);
+                    label.dataset.beschreibung = String(category.beschreibung);
                     label.textContent = category.name;
 
                     const input = document.createElement('input');
@@ -179,28 +176,41 @@ function openCategoriesPopUp() {
 function saveCategories() {
     collectedCategories = [];
 
-    const ingredientRows = document.querySelectorAll('.ingredient-row');
+    const categoryRows = document.querySelectorAll('.popup-row');
 
-    ingredientRows.forEach(row => {
+    categoryRows.forEach(row => {
         const label = row.querySelector('label')!;
         const input = row.querySelector('input')!;
 
-        const zutatId = label.dataset.id!;
-        const menge = input.value;
+        const kategorieId = label.dataset.id!;
         const name = label.textContent;
-        const einheit = label.dataset.einheit;
+        const beschreibung = label.dataset.beschreibung;
 
-        if (menge && parseInt(menge) !== 0 && name != null && einheit != null) {
-            collectedIngredients.push({
-                zutatId: parseInt(zutatId),
-                menge: parseInt(menge),
+        if (beschreibung && name != null && input.checked) {
+            collectedCategories.push({
+                id: parseInt(kategorieId),
                 name: name,
-                einheit: einheit
+                beschreibung: beschreibung
             });
         }
     });
+    console.log(collectedCategories)
     closeCategoryPopUp();
-    //displayCollectedIngredients();
+    displayCollectedCategories();
+}
+
+function displayCollectedCategories() {
+    const collectedCategoriesList = document.getElementById('selectedCategories');
+
+    if (collectedCategoriesList) {
+        collectedCategoriesList.innerHTML = '';
+        console.log(collectedCategories);
+        collectedCategories.forEach(collectedIngredient => {
+            const categoryRow = document.createElement('div');
+            categoryRow.textContent = `${collectedIngredient.name}`;
+            collectedCategoriesList.appendChild(categoryRow);
+        });
+    }
 }
 
 function closeCategoryPopUp() {

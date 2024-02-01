@@ -8,6 +8,10 @@ input[type=text], input[type=number], select, textarea {
     resize: vertical;
 }
 
+input[type=checkbox] {
+    height: 20px;
+}
+
 label {
     padding: 12px 12px 12px 0;
     display: inline-block;

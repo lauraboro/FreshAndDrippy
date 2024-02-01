@@ -7,7 +7,7 @@ public class NeuesRezeptRequest {
     private String description;
     private int duration;
     private List<ZutatMengeDto> zutaten;
-    //private List<Integer> kategorien;
+    private List<KategorieRequest> kategorien;
 
     public String getName() {
         return name;
@@ -40,12 +40,12 @@ public class NeuesRezeptRequest {
     public void setZutaten(List<ZutatMengeDto> zutaten) {
         this.zutaten = zutaten;
     }
-//
-//    public List<Integer> getKategorien() {
-//        return kategorien;
-//    }
-//
-//    public void setKategorien(List<Integer> kategorien) {
-//        this.kategorien = kategorien;
-//    }
+
+    public List<KategorieRequest> getKategorien() {
+        return kategorien;
+    }
+
+    public void setKategorien(List<KategorieRequest> kategorien) {
+        this.kategorien = kategorien;
+    }
 }

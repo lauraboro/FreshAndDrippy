@@ -17,7 +17,7 @@ async function fetchRandomRecipe(): Promise<Rezept> {
         console.error('Error fetching recipes:', error);
         return {
             name: '',
-            beschreibung: '', zubereitungsdauer: '', bild: ''
+            beschreibung: '', zubereitungsdauer: 0, bild: ''
         };
     }
 }
