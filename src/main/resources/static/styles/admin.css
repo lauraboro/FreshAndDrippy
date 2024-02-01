@@ -125,6 +125,7 @@ li a:hover {
     border: 2px solid black;
     border-radius: 10px;
     display: flex;
+    background-color: #42a62b;
     flex-direction: column;
 }
 
@@ -138,10 +139,11 @@ li a:hover {
 }
 
 .CategoryEntry {
-    background-color: dimgray;
+    background-color: rgba(255, 255, 255, 0.7);
+    transition: background-color 0.3s ease;
     border: 2px solid black;
     border-radius: 5px;
-    color: white;
+    color: black;
     display: flex;
     justify-content: space-between;
     padding-left: 5px;
@@ -150,6 +152,10 @@ li a:hover {
     height: auto;
     width: auto;
     margin-top:5px;
+}
+
+.CategoryEntry:hover {
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 .CategoryName {
@@ -196,6 +202,7 @@ li a:hover {
     border-radius: 8px;
     border: 2px solid #fff;
 
+    margin: 10px;
     height: 20px;
     padding: 12px 24px;
     text-decoration: none;

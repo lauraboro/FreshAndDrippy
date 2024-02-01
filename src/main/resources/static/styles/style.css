@@ -219,7 +219,7 @@ ul {
     margin: 0 0 0 20px;
     list-style-type: none;
     padding: 0;
-    width: 25%;
+    width: 100%;
     overflow: auto; /* Enable scrolling if the sidenav has too much content */
 }
 
@@ -276,6 +276,7 @@ li a:hover {
     border: 3px solid #69d84f;
     color: black;
     display: flex;
-    margin: 5px;
+    margin-bottom: 40px;
+    margin-top: 40px;
     background-color: white;
 }
