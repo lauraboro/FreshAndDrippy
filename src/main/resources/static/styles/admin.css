@@ -10,6 +10,42 @@ body {
     top: 0;
 }
 
+.close {
+    position: absolute;
+    color:black;
+    top: 18%;
+    right: 22%;
+    font-size: 60px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.popup-container {
+    color: white;
+    z-index: 100000;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
 #tabContainer {
     background-color: #42a62b;
     display: flex;
@@ -63,4 +99,182 @@ li a:hover {
 #BackToMainPageButton:hover {
     background-color: #69d84f;
     color: white;
+}
+
+.selectedTab {
+    background-color: #41992d;
+    color: white;
+}
+
+#CategoriesMenu {
+    background-color: white;
+    color: black;
+    display: flex;
+    padding: 10px;
+    margin-top: 100px;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#CategoryList {
+    width: 70%;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#CategoryList #CategoryListContent {
+    width: auto;
+    height: 100%;
+    padding: 0 5px 5px 5px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.CategoryEntry {
+    background-color: dimgray;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    height: auto;
+    width: auto;
+    margin-top:5px;
+}
+
+.CategoryName {
+    width: 20%;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.CategoryDescription {
+    width: 70%;
+    margin: 0;
+    min-height: 50px;
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-items: center;
+    border-left: 2px solid black;
+    padding-left: 20px;
+}
+
+.CategoryEditButton {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    float: right;
+    border-radius: 5px;
+    background-image: url("../html/images/ui/edit-button.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    transition: opacity 0.25s ease;
+}
+
+.CategoryEditButton:hover {
+    opacity: 1;
+}
+
+#CategoryList #AddCategoryButton {
+    display: inline;
+    cursor: pointer;
+    color: white;
+    border-radius: 8px;
+    border: 2px solid #fff;
+
+    height: 20px;
+    padding: 12px 24px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#CategoryList #CategoryEditBar {
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #42a62b;
+    padding: 5px;
+}
+
+#CategoryList #AddCategoryButton:hover {
+    background-color: rgb(105, 216, 79);
+}
+
+#CategoryEditDescriptionText {
+    width: 80%;
+    height: 100%;
+    padding: 5px;
+    font-family: Verdana, sans-serif;
+}
+
+#CategoryEditPopupTitle {
+    margin-bottom: 35px;
+}
+
+#CategoryEditContent {
+    width: 50%;
+    height: 50%;
+    color:black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#CategoryEditContent label {
+    margin: 5px;
+    font-weight: bold;
+}
+
+#CategoryEditNameText {
+    width: 50%;
+    padding:3px;
+    margin-bottom: 15px
+}
+
+#EditBar {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: end;
+    justify-content: center;
+}
+
+#ConfirmEditButton {
+    display: inline;
+    cursor: pointer;
+
+    color: black;
+    border-radius: 8px;
+    border: 2px solid black;
+
+    padding: 12px 24px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    background-color: rgba(0, 0, 0, 0);
+}
+#ConfirmEditButton:hover {
+    background-color: #69d84f;
 }

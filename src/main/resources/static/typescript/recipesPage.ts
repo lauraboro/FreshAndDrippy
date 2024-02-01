@@ -12,6 +12,7 @@ interface Rezept {
     name: string;
     beschreibung: string;
     zubereitungsdauer: number;
+    bild: string;
 }
 
 

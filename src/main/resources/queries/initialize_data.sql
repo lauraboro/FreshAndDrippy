@@ -91,16 +91,13 @@ VALUES ('Zucchini', 'Stück', 0.89, 100, (SELECT id from lieferant WHERE name = 
 
 -- Inserting more Rezepte
 INSERT INTO rezept (beschreibung, name, zubereitungsdauer, bild)
-VALUES ('Köstliche Zucchinipfanne', 'Zucchinipfanne', '30', 'static/html/images/recepies/Gnocchi-Zucchini-Pfanne.webp'),
-       ('Vegane Gemüse-Lasagne', 'Gemüse-Lasagne', '45', 'static/html/images/recepies/Lasange-016-2-1440x1081.jpg'),
-       ('Asiatische Nudelsuppe', 'Nudelsuppe', '40',
-        'static/html/images/recepies/d575c23772210cd7d18c589326a1fffb.jpg'),
-       ('Italienischer Caprese-Salat', 'Caprese-Salat', '15', 'static/html/images/recepies/Caprese-Salad-3.jpg'),
-       ('Hähnchen mit Paprika', 'Hähnchen-Paprika', '40',
-        'static/html/images/recepies/rezept_haehnchen_in_paprika_sahnesoße_05-e1554236259500-1624x1080.jpg'),
-       ('Quinoa-Salat', 'Quinoa-Salat', '25', 'static/html/images/recepies/Harvest-Quinoa-Salad-Photo.jpg'),
-       ('Schokoladenmuffins', 'Schoko-Muffins', '30',
-        'static/html/images/recepies/3a1283887b7dc9dcd01b6b58ced91d6b.jpg');
+VALUES ('Köstliche Zucchinipfanne', 'Zucchinipfanne', '30', 'images/recepies/Gnocchi-Zucchini-Pfanne.webp'),
+       ('Vegane Gemüse-Lasagne', 'Gemüse-Lasagne', '45', 'images/recepies/Lasange-016-2-1440x1081.jpg'),
+       ('Asiatische Nudelsuppe', 'Nudelsuppe', '40', 'images/recepies/d575c23772210cd7d18c589326a1fffb.jpg'),
+       ('Italienischer Caprese-Salat', 'Caprese-Salat', '15', 'images/recepies/Caprese-Salad-3.jpg'),
+       ('Hähnchen mit Paprika', 'Hähnchen-Paprika', '40', 'images/recepies/rezept_haehnchen_in_paprika_sahnesoße_05-e1554236259500-1624x1080.jpg'),
+       ('Quinoa-Salat', 'Quinoa-Salat', '25', 'images/recepies/Harvest-Quinoa-Salad-Photo.jpg'),
+       ('Schokoladenmuffins', 'Schoko-Muffins', '30', 'images/recepies/3a1283887b7dc9dcd01b6b58ced91d6b.jpg');
 
 -- Inserting more Kategorien
 INSERT INTO kategorie (beschreibung, name)
@@ -255,8 +252,7 @@ VALUES ((SELECT id FROM zutat WHERE name = 'Tomate'), (SELECT id FROM beschraenk
        ((SELECT id FROM zutat WHERE name = 'Schokolade'), (SELECT id FROM beschraenkung WHERE name = 'Laktose')),
        ((SELECT id FROM zutat WHERE name = 'Schokolade'), (SELECT id FROM beschraenkung WHERE name = 'Tierprodukt'));
 
-INSERT INTO naehrstoffe (zutat_id, ballaststoffe, fett, gesaettigte_fettsaeuren, kalorien, kohlenhydrate, natrium,
-                         proteine, zucker)
+INSERT INTO naehrstoffe (zutat_id, ballaststoffe, fett, gesaettigte_fettsaeuren, kalorien, kohlenhydrate, natrium, proteine, zucker)
 VALUES ((SELECT id FROM zutat WHERE name = 'Zucchini'), 1.0, 0.3, 0.0, 17.0, 3.1, 8.0, 1.2, 2.5),
        ((SELECT id FROM zutat WHERE name = 'Zwiebel'), 1.7, 0.1, 0.0, 40.0, 9.3, 4.0, 1.1, 4.7),
        ((SELECT id FROM zutat WHERE name = 'Tomate'), 1.2, 0.2, 0.0, 18.0, 3.9, 5.0, 0.9, 2.6),

@@ -60,4 +60,9 @@ public class RezeptService {
 
         rezeptRepository.save(rezept);
     }
+
+    public Rezept getRandomRezept() {
+
+        return rezeptRepository.findRandomRezept();
+    }
 }
