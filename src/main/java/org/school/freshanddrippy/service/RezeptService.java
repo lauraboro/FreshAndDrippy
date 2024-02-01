@@ -1,12 +1,13 @@
 package org.school.freshanddrippy.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.school.freshanddrippy.dto.NeuesRezeptRequest;
 import org.school.freshanddrippy.dto.ZutatMengeDto;
 import org.school.freshanddrippy.entity.Rezept;
 import org.school.freshanddrippy.entity.RezeptZutat;
 import org.school.freshanddrippy.entity.Zutat;
 import org.school.freshanddrippy.repository.RezeptRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -26,27 +27,28 @@ public class RezeptService {
         return rezeptRepository.findAll();
     }
 
-    public void createRezept(NeuesRezeptRequest request) {
-        ObjectMapper mapper = new ObjectMapper(request.getZutaten(), );
-        Rezept rezept = new Rezept();
+    public ResponseEntity<NeuesRezeptRequest> createRezept(NeuesRezeptRequest request) {
+        try {
+            Rezept rezept = new Rezept();
 
-        rezept.setName(request.getName());
-        rezept.setBeschreibung(request.getDescription());
-        rezept.setZubereitungsdauer(request.getDuration());
+            rezept.setName(request.getName());
+            rezept.setBeschreibung(request.getDescription());
+            rezept.setZubereitungsdauer(request.getDuration());
 
-        Set<RezeptZutat> rezeptZutaten = new HashSet<>();
-        for (ZutatMengeDto zutatMengeDto : request.getZutaten()) {
-            Zutat zutat = new Zutat();
-            zutat.setId(zutatMengeDto.getZutatId());
+            Set<RezeptZutat> rezeptZutaten = new HashSet<>();
+            for (ZutatMengeDto zutatMengeDto : request.getZutaten()) {
+                Zutat zutat = new Zutat();
+                zutat.setId(zutatMengeDto.getZutatId());
 
-            RezeptZutat rezeptZutat = new RezeptZutat();
-            rezeptZutat.setRezept(rezept);
-            rezeptZutat.setZutat(zutat);
-            rezeptZutat.setMenge(zutatMengeDto.getMenge());
+                RezeptZutat rezeptZutat = new RezeptZutat();
+                rezeptZutat.setRezept(rezept);
+                rezeptZutat.setZutat(zutat);
+                rezeptZutat.setMenge(zutatMengeDto.getMenge());
 
-            rezeptZutaten.add(rezeptZutat);
-        }
-        rezept.setZutats(rezeptZutaten);
+                rezeptZutaten.add(rezeptZutat);
+            }
+            rezept.setZutats(rezeptZutaten);
+
 
 //        // Setzen Sie Kategorien
 //        Set<Kategorie> kategorien = new HashSet<>();
@@ -58,7 +60,11 @@ public class RezeptService {
 //        }
 //        rezept.setKategories(kategorien);
 
-        rezeptRepository.save(rezept);
+            rezeptRepository.save(rezept);
+            return new ResponseEntity<>(request, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     public Rezept getRandomRezept() {

@@ -1,11 +1,13 @@
 package org.school.freshanddrippy.dto;
 
+import java.util.List;
+
 public class NeuesRezeptRequest {
     private String name;
     private String description;
     private int duration;
-    private String zutaten;
-    private String kategorien;
+    private List<ZutatMengeDto> zutaten;
+    //private List<Integer> kategorien;
 
     public String getName() {
         return name;
@@ -31,19 +33,19 @@ public class NeuesRezeptRequest {
         this.duration = duration;
     }
 
-    public String getZutaten() {
+    public List<ZutatMengeDto> getZutaten() {
         return zutaten;
     }
 
-    public void setZutaten(String zutaten) {
+    public void setZutaten(List<ZutatMengeDto> zutaten) {
         this.zutaten = zutaten;
     }
-
-    public String getKategorien() {
-        return kategorien;
-    }
-
-    public void setKategorien(String kategorien) {
-        this.kategorien = kategorien;
-    }
+//
+//    public List<Integer> getKategorien() {
+//        return kategorien;
+//    }
+//
+//    public void setKategorien(List<Integer> kategorien) {
+//        this.kategorien = kategorien;
+//    }
 }

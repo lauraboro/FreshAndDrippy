@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface ZutatRepository extends JpaRepository<Zutat, Long> {
 
-    @Query("SELECT z FROM Zutat z")
+    @Query("SELECT z FROM Zutat z order by z.name asc")
     List<Zutat> findAll();
 }

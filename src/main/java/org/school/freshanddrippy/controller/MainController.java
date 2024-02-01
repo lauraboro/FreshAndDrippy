@@ -56,7 +56,7 @@ public class MainController {
     }
 
     @PostMapping("/rezepte/createRezept")
-    public void createNeuesRezept(@RequestBody NeuesRezeptRequest request) {
-        rezeptService.createRezept(request);
+    public ResponseEntity<NeuesRezeptRequest> createNeuesRezept(@RequestBody NeuesRezeptRequest request) {
+        return rezeptService.createRezept(request);
     }
 }

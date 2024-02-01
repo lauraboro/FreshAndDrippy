@@ -67,21 +67,28 @@
                 <label for="Categories">Categories</label>
             </div>
             <div class="col-75">
-                <button class="button" id="Categories" onclick="addCategoriesInput()" type="button">+</button>
+                <button class="button" id="Categories" onclick="openCategoriesPopUp()" type="button">+</button>
             </div>
         </div>
         <div class="row">
-            <button class="button" onclick="saveRecipe()" type="button">Submit</button>
+            <input class="button" id="Submit" onclick="saveRecipe()" type="submit">
         </div>
     </form>
 
 
     <!-- Popup for Ingredients -->
-    <div id="ingredientPopup">
+    <div class="popUp" id="ingredientPopup">
         <h2>Ingredients</h2>
         <div id="ingredientList"></div>
         <button class="button" onclick="saveIngredients()" type="button">Add Ingredients to Recipe</button>
         <button class="button" onclick="closeIngredientPopUp()" type="button">Close</button>
+    </div>
+
+    <div class="popUp" id="categoryPopup">
+        <h2>Ingredients</h2>
+        <div id="categoryList"></div>
+        <button class="button" onclick="saveCategories()" type="button">Add Ingredients to Recipe</button>
+        <button class="button" onclick="closeCategoryPopUp()" type="button">Close</button>
     </div>
 </div>
 </body>

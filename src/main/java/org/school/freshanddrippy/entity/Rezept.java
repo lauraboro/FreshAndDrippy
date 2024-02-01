@@ -28,7 +28,7 @@ public class Rezept {
     @JoinTable(name = "rezept_kategorie", joinColumns = @JoinColumn(name = "rezept_id"), inverseJoinColumns = @JoinColumn(name = "kategorie_id"))
     private Set<Kategorie> kategories;
 
-    @OneToMany(mappedBy = "rezept", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "rezept", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<RezeptZutat> zutats;
 
     public long getId() {
