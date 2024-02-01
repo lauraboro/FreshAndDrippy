@@ -73,14 +73,6 @@ public class Zutat {
         this.bestand = bestand;
     }
 
-    public Lieferant getLieferant() {
-        return lieferant;
-    }
-
-    public void setLieferant(Lieferant lieferant) {
-        this.lieferant = lieferant;
-    }
-
     public Set<Beschraenkung> getBeschraenkungs() {
         return beschraenkungs;
     }

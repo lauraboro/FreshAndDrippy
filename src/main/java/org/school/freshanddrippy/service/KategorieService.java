@@ -6,6 +6,8 @@ import org.school.freshanddrippy.entity.Rezept;
 import org.school.freshanddrippy.repository.KategorieRepository;
 import org.school.freshanddrippy.repository.RezeptRepository;
 import org.springframework.data.domain.Sort;
+import org.school.freshanddrippy.entity.Kategorie;
+import org.school.freshanddrippy.repository.KategorieRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

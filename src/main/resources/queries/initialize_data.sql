@@ -91,13 +91,13 @@ VALUES ('Zucchini', 'Stück', 0.89, 100, (SELECT id from lieferant WHERE name = 
 
 -- Inserting more Rezepte
 INSERT INTO rezept (beschreibung, name, zubereitungsdauer, bild)
-VALUES ('Köstliche Zucchinipfanne', 'Zucchinipfanne', '30 minutes', 'images/recipes/Gnocchi-Zucchini-Pfanne.webp'),
-       ('Vegane Gemüse-Lasagne', 'Gemüse-Lasagne', '45 minutes', 'images/recipes/Lasange-016-2-1440x1081.jpg'),
-       ('Asiatische Nudelsuppe', 'Nudelsuppe', '40 minutes', 'images/recipes/d575c23772210cd7d18c589326a1fffb.jpg'),
-       ('Italienischer Caprese-Salat', 'Caprese-Salat', '15 minutes', 'images/recipes/Caprese-Salad-3.jpg'),
-       ('Hähnchen mit Paprika', 'Hähnchen-Paprika', '40 minutes', 'images/recipes/rezept_haehnchen_in_paprika_sahnesoße_05-e1554236259500-1624x1080.jpg'),
-       ('Quinoa-Salat', 'Quinoa-Salat', '25 minutes', 'images/recipes/Harvest-Quinoa-Salad-Photo.jpg'),
-       ('Schokoladenmuffins', 'Schoko-Muffins', '30 minutes', 'images/recipes/3a1283887b7dc9dcd01b6b58ced91d6b.jpg');
+VALUES ('Köstliche Zucchinipfanne', 'Zucchinipfanne', '30', 'images/recipes/Gnocchi-Zucchini-Pfanne.webp'),
+       ('Vegane Gemüse-Lasagne', 'Gemüse-Lasagne', '45', 'images/recipes/Lasange-016-2-1440x1081.jpg'),
+       ('Asiatische Nudelsuppe', 'Nudelsuppe', '40', 'images/recipes/d575c23772210cd7d18c589326a1fffb.jpg'),
+       ('Italienischer Caprese-Salat', 'Caprese-Salat', '15', 'images/recipes/Caprese-Salad-3.jpg'),
+       ('Hähnchen mit Paprika', 'Hähnchen-Paprika', '40', 'images/recipes/rezept_haehnchen_in_paprika_sahnesoße_05-e1554236259500-1624x1080.jpg'),
+       ('Quinoa-Salat', 'Quinoa-Salat', '25', 'images/recipes/Harvest-Quinoa-Salad-Photo.jpg'),
+       ('Schokoladenmuffins', 'Schoko-Muffins', '30', 'images/recipes/3a1283887b7dc9dcd01b6b58ced91d6b.jpg');
 
 -- Inserting more Kategorien
 INSERT INTO kategorie (beschreibung, name)

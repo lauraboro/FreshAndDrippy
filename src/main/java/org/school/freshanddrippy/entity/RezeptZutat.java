@@ -1,5 +1,6 @@
 package org.school.freshanddrippy.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,7 @@ public class RezeptZutat {
 
     @ManyToOne
     @JoinColumn(name = "rezept_id")
+    @JsonIgnore
     private Rezept rezept;
 
     @ManyToOne
@@ -43,5 +45,13 @@ public class RezeptZutat {
 
     public void setMenge(int menge) {
         this.menge = menge;
+    }
+
+    public Rezept getRezept() {
+        return rezept;
+    }
+
+    public void setRezept(Rezept rezept) {
+        this.rezept = rezept;
     }
 }
