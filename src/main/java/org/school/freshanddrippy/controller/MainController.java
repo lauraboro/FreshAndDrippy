@@ -26,4 +26,9 @@ public class MainController {
     public List<Rezept> getAllRezepte() {
         return rezeptService.getAllRezepte();
     }
+
+    @GetMapping("/randomRezept")
+    public Rezept getRandomRezept(){
+        return rezeptService.getRandomRezept();
+    }
 }
