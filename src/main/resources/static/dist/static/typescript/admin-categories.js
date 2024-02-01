@@ -80,7 +80,7 @@ function addEventListeners(categories) {
     const body = document.body;
     if (!categoryListPopup || !popupTitle || !popupDescription)
         return;
-    for (let i = 0; i < categories.length; i++) {
+    for (let i = 1; i <= categories.length; i++) {
         const editButton = document.getElementById("EditButton" + i);
         if (editButton) {
             editButton.addEventListener("click", function () {

@@ -12,24 +12,24 @@ body {
 
 .close {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    color:black;
+    top: 5%;
+    right: 22%;
     font-size: 60px;
     width: 60px;
     height: 60px;
     line-height: 60px;
-    border: 3px solid #42a62b;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
 }
 
 .close:hover {
-    background-color: #69d84f;
+    opacity: 1;
 }
 
 .popup-container {
@@ -178,8 +178,10 @@ li a:hover {
     margin: 5px;
     float: right;
     border-radius: 5px;
-    border: 2px solid black;
-    opacity: 0.8;
+    background-image: url("../html/images/ui/edit-button.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    opacity: 0.5;
     transition: opacity 0.25s ease;
 }
 
@@ -218,11 +220,17 @@ li a:hover {
 
 #CategoryEditDescriptionText {
     width: 80%;
-    height: 30%
+    height: 30%;
+    padding: 5px;
+    font-family: Verdana, sans-serif;
+}
+
+#CategoryEditPopupTitle {
+    margin-bottom: 35px;
 }
 
 #CategoryEditContent {
-    width: 80%;
+    width: 50%;
     height: 80%;
     color:black;
     background-color: white;
@@ -233,4 +241,40 @@ li a:hover {
     display: flex;
     flex-direction: column;
     align-content: center;
+}
+
+#CategoryEditContent label {
+    margin: 5px;
+    font-weight: bold;
+}
+
+#CategoryEditNameText {
+    width: 50%;
+    padding:3px;
+    margin-bottom: 15px
+}
+
+#EditBar {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: end;
+    justify-content: center;
+}
+
+#ConfirmEditButton {
+    display: inline;
+    cursor: pointer;
+
+    color: black;
+    border-radius: 8px;
+    border: 2px solid black;
+
+    padding: 12px 24px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    background-color: rgba(0, 0, 0, 0);
+}
+#ConfirmEditButton:hover {
+    background-color: #69d84f;
 }
