@@ -16,19 +16,18 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 
-function getHtmlForCategory(category: Kategorie) : string {
+function getHtmlForCategory(category: Kategorie): string {
     return `
-            <div class="CategoryEntry">
-                <a class="CategoryName">`+ category.name + `</a>
-                <p class="CategoryDescription">`+ category.beschreibung + `</p>
-                <div class="CategoryEditButton" id="EditButton`+ category.id + `">
-                    
+            <div class="adminTableEntry">
+                <a class="adminTableEntryName">` + category.name + `</a>
+                <p class="adminTableEntryDescription">` + category.beschreibung + `</p>
+                <div class="adminTableEditButton" id="EditButton` + category.id + `">
                 </div>
             </div>
         `;
 }
 
-async function fetchCategories() : Promise<Kategorie[]> {
+async function fetchCategories(): Promise<Kategorie[]> {
     try {
         const response = await fetch('http://localhost:8080/api/allKategorien');
         return await response.json();
@@ -55,11 +54,11 @@ function addCategoryButtonEventListener() {
     const popupDescription = document.getElementById("CategoryEditDescriptionText") as HTMLTextAreaElement;
     const body = document.body;
 
-    if(!categoryListPopup || !popupTitle || !popupDescription) return;
+    if (!categoryListPopup || !popupTitle || !popupDescription) return;
 
     const addCategoryButton = document.getElementById("AddCategoryButton");
 
-    if(!addCategoryButton) return;
+    if (!addCategoryButton) return;
 
     addCategoryButton.addEventListener("click", function () {
         categoryListPopup.style.display = "flex";
@@ -78,12 +77,12 @@ function addEventListeners(categories: Kategorie[]) {
     const popupDescription = document.getElementById("CategoryEditDescriptionText") as HTMLTextAreaElement;
     const body = document.body;
 
-    if(!categoryListPopup || !popupTitle || !popupDescription) return;
+    if (!categoryListPopup || !popupTitle || !popupDescription) return;
 
-    for(let i = 1; i <= categories.length; i++) {
+    for (let i = 1; i <= categories.length; i++) {
         const editButton = document.getElementById("EditButton" + i);
 
-        if(editButton) {
+        if (editButton) {
             editButton.addEventListener("click", function () {
                 categoryListPopup.style.display = "flex";
                 body.classList.add("no-scroll");
@@ -99,7 +98,7 @@ function addEventListeners(categories: Kategorie[]) {
 async function loadCategoryList() {
     const categoryList = document.getElementById("CategoryListContent");
 
-    if(categoryList) {
+    if (categoryList) {
         await updateCategoryList(categoryList);
     }
 }
@@ -109,7 +108,7 @@ function addClosePopupListener() {
     const categoryListPopup = document.getElementById("EditCategoryListPopup");
     const body = document.body;
 
-    if(closePopupButton && categoryListPopup) {
+    if (closePopupButton && categoryListPopup) {
         closePopupButton.addEventListener("click", function () {
             closePopup();
         });
@@ -120,7 +119,7 @@ function closePopup() {
     const categoryListPopup = document.getElementById("EditCategoryListPopup");
     const body = document.body;
 
-    if(!categoryListPopup || !body) return;
+    if (!categoryListPopup || !body) return;
 
     categoryListPopup.style.display = "none";
     body.classList.remove("no-scroll");
@@ -130,20 +129,20 @@ function closePopup() {
 function addConfirmEditListener() {
     const confirmEditButton = document.getElementById("ConfirmEditButton");
 
-    if(confirmEditButton) {
-        confirmEditButton.addEventListener("click", function() {
+    if (confirmEditButton) {
+        confirmEditButton.addEventListener("click", function () {
             const popupTitle = document.getElementById("CategoryEditNameText") as HTMLInputElement;
             const popupDescription = document.getElementById("CategoryEditDescriptionText") as HTMLTextAreaElement;
 
-            if(!popupTitle || !popupDescription) return;
+            if (!popupTitle || !popupDescription) return;
 
-            let categoryData= {
+            let categoryData = {
                 id: selectedID,
                 name: popupTitle.value,
                 beschreibung: popupDescription.value,
             };
 
-            let jsonDataString  = JSON.stringify(categoryData);
+            let jsonDataString = JSON.stringify(categoryData);
             console.log(jsonDataString);
 
             fetch("http://localhost:8080/api/sendKategorieUpdate", {

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Admin-tool</title>
+    <link href="../styles/admin.css" rel="stylesheet">
+    <script src="../dist/static/typescript/admin-restrictions.js"></script>
+</head>
+<body>
+<div class="sticky" id="tabContainer">
+    <ul>
+        <li><a href="admin-recipes.html">Recipes</a></li>
+        <li><a href="admin-ingredients.html">Ingredients</a></li>
+        <li><a href="admin-categories.html">Categories</a></li>
+        <li><a class="selectedTab" href="admin-restrictions.html">Restrictions</a></li>
+    </ul>
+    <a href="index.html" id="BackToMainPageButton">Back</a>
+</div>
+<div class="admin-menu" id="RestrictionsMenu">
+    <h1 style="align-self: center">Restrictions</h1>
+    <div class="restriction-list" id="RestrictionList">
+        <div class="admin-list-content" id="RestrictionListContent">
+        </div>
+        <div class="adminTableEditBar" id="RestrictionEditBar">
+            <a class="adminTableAddButton" id="addRestrictionButton">Add Restriction</a>
+        </div>
+    </div>
+</div>
+<div class="popup-container" id="EditRestrictionListPopup">
+    <div id="RestrictionEditContent">
+        <span class="close" id="CloseEditRestrictionListPopup">&times;</span>
+        <h2 id="RestrictionEditPopupTitle">Edit</h2>
+        <label for="RestrictionEditNameText">Name:</label>
+        <input id="RestrictionEditNameText" type="text"/>
+
+        <div id="EditBar">
+            <a class="admin-confirm-button" id="restrictionConfirmEditButton">Confirm</a>
+        </div>
+
+    </div>
+</div>
+</body>
