@@ -16,7 +16,7 @@ body {
 
 .close {
     position: absolute;
-    color:black;
+    color: black;
     top: 18%;
     right: 22%;
     font-size: 60px;
@@ -49,6 +49,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 
 #tabContainer {
     background-color: #42a62b;
@@ -110,7 +111,7 @@ li a:hover {
     color: white;
 }
 
-#CategoriesMenu {
+.admin-menu {
     background-color: white;
     color: black;
     display: flex;
@@ -123,7 +124,7 @@ li a:hover {
     flex-direction: column;
 }
 
-#CategoryList {
+.admin-list {
     width: 70%;
     height: auto;
     border: 2px solid black;
@@ -133,7 +134,17 @@ li a:hover {
     flex-direction: column;
 }
 
-#CategoryList #CategoryListContent {
+.restriction-list {
+    width: 20%;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    background-color: #42a62b;
+    flex-direction: column;
+}
+
+.admin-list-content {
     width: auto;
     height: 100%;
     padding: 0 5px 5px 5px;
@@ -142,7 +153,7 @@ li a:hover {
     flex-direction: column;
 }
 
-.CategoryEntry {
+.adminTableEntry {
     background-color: rgba(255, 255, 255, 0.7);
     transition: background-color 0.3s ease;
     border: 2px solid black;
@@ -155,14 +166,14 @@ li a:hover {
     align-items: center;
     height: auto;
     width: auto;
-    margin-top:5px;
+    margin-top: 5px;
 }
 
-.CategoryEntry:hover {
+.adminTableEntry:hover {
     background-color: rgba(255, 255, 255, 0.85);
 }
 
-.CategoryName {
+.adminTableEntryName {
     width: 20%;
     text-align: center;
     overflow: hidden;
@@ -170,7 +181,15 @@ li a:hover {
     text-overflow: ellipsis;
 }
 
-.CategoryDescription {
+.RestrictionEntryName {
+    width: auto;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.adminTableEntryDescription {
     width: 70%;
     margin: 0;
     min-height: 50px;
@@ -182,7 +201,7 @@ li a:hover {
     padding-left: 20px;
 }
 
-.CategoryEditButton {
+.adminTableEditButton {
     width: 35px;
     height: 35px;
     margin: 5px;
@@ -195,11 +214,11 @@ li a:hover {
     transition: opacity 0.25s ease;
 }
 
-.CategoryEditButton:hover {
+.adminTableEditButton:hover {
     opacity: 1;
 }
 
-#CategoryList #AddCategoryButton {
+.adminTableAddButton {
     display: inline;
     cursor: pointer;
     color: white;
@@ -214,7 +233,7 @@ li a:hover {
     background-color: rgba(0, 0, 0, 0);
 }
 
-#CategoryList #CategoryEditBar {
+.adminTableEditBar {
     display: flex;
     height: auto;
     align-items: center;
@@ -225,11 +244,11 @@ li a:hover {
     padding: 5px;
 }
 
-#CategoryList #AddCategoryButton:hover {
+.adminTableAddButton:hover {
     background-color: rgb(105, 216, 79);
 }
 
-#CategoryEditDescriptionText {
+.adminTableEditDescriptionText {
     width: 80%;
     height: 100%;
     padding: 5px;
@@ -243,7 +262,21 @@ li a:hover {
 #CategoryEditContent {
     width: 50%;
     height: 50%;
-    color:black;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#RestrictionEditContent {
+    width: 30%;
+    height: 20%;
+    color: black;
     background-color: white;
     border: 2px solid black;
     border-radius: 10px;
@@ -261,7 +294,7 @@ li a:hover {
 
 #CategoryEditNameText {
     width: 50%;
-    padding:3px;
+    padding: 3px;
     margin-bottom: 15px
 }
 
@@ -273,7 +306,7 @@ li a:hover {
     justify-content: center;
 }
 
-#ConfirmEditButton {
+.admin-confirm-button {
     display: inline;
     cursor: pointer;
 
@@ -286,6 +319,7 @@ li a:hover {
     transition: background-color 0.2s ease;
     background-color: rgba(0, 0, 0, 0);
 }
-#ConfirmEditButton:hover {
+
+.admin-confirm-button:hover {
     background-color: #69d84f;
 }

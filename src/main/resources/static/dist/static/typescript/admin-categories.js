@@ -20,11 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 function getHtmlForCategory(category) {
     return `
-            <div class="CategoryEntry">
-                <a class="CategoryName">` + category.name + `</a>
-                <p class="CategoryDescription">` + category.beschreibung + `</p>
-                <div class="CategoryEditButton" id="EditButton` + category.id + `">
-                    
+            <div class="adminTableEntry">
+                <a class="adminTableEntryName">` + category.name + `</a>
+                <p class="adminTableEntryDescription">` + category.beschreibung + `</p>
+                <div class="adminTableEditButton" id="EditButton` + category.id + `">
                 </div>
             </div>
         `;
