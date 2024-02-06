@@ -2,90 +2,111 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Fresh And Drippy</title>
-    <link rel="stylesheet" href="../styles/style.css">
+    <link href="../styles/style.css" rel="stylesheet">
     <script src="../dist/static/typescript/app.js"></script>
     <script src="../dist/static/typescript/randomRezept.js"></script>
     <script src="../dist/static/typescript/recipeList.js"></script>
+    <script src="../dist/static/typescript/shoppingCart.js"></script>
 </head>
 <body>
-    <div id="tabContainer" class="sticky">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="recipesPage.html">Recipes</a></li>
-            <li><a id="OpenContactPopup">Contact</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-        <img src="images/star.png" id="star1" class="star"/>
-        <img src="images/logo.png" id="logo"/>
-        <img src="images/star.png" id="star2" class="star"/>
-        <a id="LoginButton">Login</a>
+<div class="sticky" id="tabContainer">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recipesPage.html">Recipes</a></li>
+        <li><a id="OpenContactPopup">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+    <img class="star" id="star1" src="images/star.png"/>
+    <img id="logo" src="images/logo.png"/>
+    <img class="star" id="star2" src="images/star.png"/>
+    <div class="shopping" onclick="openCart()">
+        <img src="images/shopping.svg">
+        <span class="quantity" id="quantity">0</span>
     </div>
-    <div id="ContactPopupContainer" class="popup-container">
-        <div id="ContactContent">
-            <span class="close" id="CloseContactPopup">&times;</span>
-            <h2>Write us an e-mail!</h2>
-            <a>It usually takes us around 3-5 business years to answer</a>
-            <input type="text" id="ContactText" placeholder="I fucking love your food!!!"/>
-            <a id="ContactButton">Send</a>
-        </div>
+    <a id="LoginButton">Login</a>
+</div>
+<div class="popup-container" id="ContactPopupContainer">
+    <div id="ContactContent">
+        <span class="close" id="CloseContactPopup">&times;</span>
+        <h2>Write us an e-mail!</h2>
+        <a>It usually takes us around 3-5 business years to answer</a>
+        <input id="ContactText" placeholder="I fucking love your food!!!" type="text"/>
+        <a id="ContactButton">Send</a>
     </div>
-    <div id="Home">
-        <img src="images/home-background.png" style="visibility: hidden"/>
-        <div id="ImageOverlay"></div>
-        <div id="TextOverlay">
-            <h2 id="HomeText">Order delicious food <br>
-                to your doorstep</h2>
-        </div>
+</div>
+<div id="Home">
+    <img src="images/home-background.png" style="visibility: hidden"/>
+    <div id="ImageOverlay"></div>
+    <div id="TextOverlay">
+        <h2 id="HomeText">Order delicious food <br>
+            to your doorstep</h2>
     </div>
-    <div id="About">
-        <div class="Title">
-            <a>We are fresh! We are drippy!</a>
-        </div>
-        <p style="padding-top: 15px; font-size: 18px">
-            We deliver fresh ingredients alongside nice recipes directly to your doorstep by the click of a button! <br>
-            Checkout our new daily offers right now!
-        </p>
-        <div id="DailyRecipe">
-            <div class="Recipe">
-                <div class="RecipeImage" id="DailyRecipeImage">
-                    <div class="RecipeImageGlow"></div>
-                </div>
-                <div class="RecipeContent">
-                    <div class="RecipeHeader">
-                        <div class="RecipePrepTime">
-                            <img src="images/clock.png" alt="time">
-                            <a id="DailyRecipePrepTime">30min</a>
-                        </div>
-                        <a class="RecipeTitle" id="DailyRecipeTitle">Rezept</a>
-                        <div class="RecipeInfoContainer">
-                            <img class="RecipeInfo" src="images/info.png" alt="Info">
-                        </div>
+</div>
+<div id="About">
+    <div class="Title">
+        <a>We are fresh! We are drippy!</a>
+    </div>
+    <p style="padding-top: 15px; font-size: 18px">
+        We deliver fresh ingredients alongside nice recipes directly to your doorstep by the click of a button! <br>
+        Checkout our new daily offers right now!
+    </p>
+    <div id="DailyRecipe">
+        <div class="Recipe">
+            <div class="RecipeImage" id="DailyRecipeImage">
+                <div class="RecipeImageGlow"></div>
+            </div>
+            <div class="RecipeContent">
+                <div class="RecipeHeader">
+                    <div class="RecipePrepTime">
+                        <img alt="time" src="images/clock.png">
+                        <a id="DailyRecipePrepTime">30min</a>
                     </div>
-                    <p class="RecipeDescription" id="DailyRecipeDescription">Dieses wundertolle Rezept eines wundertollen 5 Sterne-Kochs sorgt bei der Zubereitung für umwogene Freude und bei Konsum für einen gewaltigen Gaumenschmaus</p>
-                    <p class="RecipeIngredients" id="DailyRecipeIngredients">3x Tomaten, 5x Schnittlauch, 1x deine Mum</p>
-                    <div class="RecipeFooter">
-                        <a class="AddToCartButton" id="AddDailyRecipeToCart">+ Add to cart</a>
+                    <a class="RecipeTitle" id="DailyRecipeTitle">Rezept</a>
+                    <div class="RecipeInfoContainer">
+                        <img alt="Info" class="RecipeInfo" src="images/info.png">
                     </div>
                 </div>
+                <p class="RecipeDescription" id="DailyRecipeDescription">Dieses wundertolle Rezept eines wundertollen 5
+                    Sterne-Kochs sorgt bei der Zubereitung für umwogene Freude und bei Konsum für einen gewaltigen
+                    Gaumenschmaus</p>
+                <p class="RecipeIngredients" id="DailyRecipeIngredients">3x Tomaten, 5x Schnittlauch, 1x deine Mum</p>
+                <div class="RecipeFooter">
+                    <a class="AddToCartButton" id="AddDailyRecipeToCart">+ Add to cart</a>
+                </div>
             </div>
         </div>
     </div>
-    <div id="Recipes">
-        <div class="Title">
-            <a>Our recipes!</a>
-        </div>
-        <div id="RecipeFilterHeader">
-            <div id="TestFilter" class="RecipeFilter">
-                <a>Test Filter</a>
-            </div>
-        </div>
-        <div id="RecipeList">
-            <div id="RecipeListContent">
-
-            </div>
+</div>
+<div id="Recipes">
+    <div class="Title">
+        <a>Our recipes!</a>
+    </div>
+    <div id="RecipeFilterHeader">
+        <div class="RecipeFilter" id="TestFilter">
+            <a>Test Filter</a>
         </div>
     </div>
+    <div id="RecipeList">
+        <div id="RecipeListContent">
+        </div>
+    </div>
+</div>
+<div class="cart" id="shoppingCart">
+    <div class="cart-header">
+        <div class="cart-close" onclick="closeCart()">
+            <img src="images/ui/cross.svg">
+        </div>
+        <span style="color: white">Your Shopping Cart</span>
+    </div>
+    <div class="cartList" id="cartList">
+    </div>
+    <hr style="margin: 10px">
+    <hr style="margin: 10px">
+    <div class="checkOut">
+        <span class="total" id="totalPrice"></span>
+    </div>
+</div>
 </body>
 </html>
