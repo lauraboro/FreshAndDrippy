@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", async function () {
-
-    console.log("Application loaded!");
-
     const recipe = await fetchRandomRecipe();
     displayRandomRecipe(recipe);
 
@@ -16,24 +13,30 @@ async function fetchRandomRecipe(): Promise<Rezept> {
     } catch (error) {
         console.error('Error fetching recipes:', error);
         return {
+            id: 0,
             name: '',
-            beschreibung: '', zubereitungsdauer: 0, bild: ''
+            beschreibung: '',
+            zubereitungsdauer: 0,
+            bild: '',
+            kategories: []
         };
     }
 }
 
 function displayRandomRecipe(recipe: Rezept): void {
-    const dailyRecipeName = document.getElementById('RecipeTitle');
-    const dailyRecipeDescription = document.getElementById('RecipeDescription');
-    const dailyRecipeImage = document.getElementById('RecipeImage') as HTMLImageElement;
+    const dailyRecipeName = document.getElementById('DailyRecipeTitle');
+    const dailyRecipeDescription = document.getElementById('DailyRecipeDescription');
+    const dailyRecipePrepTime = document.getElementById('DailyRecipePrepTime');
+    const dailyRecipeImage = document.getElementById('DailyRecipeImage') as HTMLDivElement;
 
 
     console.log(recipe.bild);
 
-    if (dailyRecipeName && dailyRecipeDescription && dailyRecipeImage) {
+    if (dailyRecipeName && dailyRecipeDescription && dailyRecipeImage && dailyRecipePrepTime) {
         dailyRecipeName.innerHTML = recipe.name;
-        dailyRecipeDescription.innerHTML = recipe.beschreibung + "<br><br>Zubereitungsdauer: " + recipe.zubereitungsdauer;
-        dailyRecipeImage.src = recipe.bild ? recipe.bild : 'images/recepies/rezept_haehnchen_in_paprika_sahnesoße_05-e1554236259500-1624x1080.jpg';
+        dailyRecipeDescription.innerHTML = recipe.beschreibung;
+        dailyRecipePrepTime.innerHTML = recipe.zubereitungsdauer + "min";
+        dailyRecipeImage.style.backgroundImage = recipe.bild ? "url(" + recipe.bild + ")" : 'url(../html/images/recepies/rezept_haehnchen_in_paprika_sahnesoße_05-e1554236259500-1624x1080.jpg)';
 
         console.log(recipe.name);
     } else {
