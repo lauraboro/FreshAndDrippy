@@ -22,6 +22,69 @@ body {
     overflow: hidden;
 }
 
+.shopping {
+    margin-right: 50px;
+}
+
+.container {
+    width: 1000px;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.quantity {
+    background: red;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: 2px;
+    padding: 3px 10px;
+}
+
+.cart {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 380px;
+    height: 100%;
+    background-color: #fbf6f0;
+    transition: 0.8s;
+    z-index: 9999;
+}
+
+.cart-header {
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    background-color: #42a62b;
+    align-items: center;
+}
+
+.cart-close {
+    position: absolute;
+    width: 3rem;
+    top: 0;
+    left: 0;
+    opacity: .75;
+    transition: opacity .35s;
+    align-items: center;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.cart-close:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.cart-active {
+    left: calc(100% - 380px);
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+
 #ContactContent #ContactText {
     width: 100%;
     padding: 5px 2px 5px 2px;

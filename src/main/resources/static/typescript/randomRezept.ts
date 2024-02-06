@@ -16,6 +16,7 @@ async function fetchRandomRecipe(): Promise<Rezept> {
     } catch (error) {
         console.error('Error fetching recipes:', error);
         return {
+            id: 0,
             name: '',
             beschreibung: '', zubereitungsdauer: 0, bild: ''
         };
@@ -31,11 +32,12 @@ function displayRandomRecipe(recipe: Rezept): void {
     console.log(recipe.bild);
 
     if (dailyRecipeName && dailyRecipeDescription && dailyRecipeImage) {
+        dailyRecipeName.dataset.id = String(recipe.id);
         dailyRecipeName.innerHTML = recipe.name;
         dailyRecipeDescription.innerHTML = recipe.beschreibung + "<br><br>Zubereitungsdauer: " + recipe.zubereitungsdauer;
         dailyRecipeImage.src = recipe.bild ? recipe.bild : 'images/recepies/rezept_haehnchen_in_paprika_sahnesoße_05-e1554236259500-1624x1080.jpg';
 
-        console.log(recipe.name);
+        console.log(recipe);
     } else {
         console.error("One or more elements not found");
     }

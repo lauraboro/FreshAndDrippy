@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 interface Rezept {
+    id: number;
     name: string;
     beschreibung: string;
     zubereitungsdauer: number;
@@ -47,4 +48,6 @@ function displayRecipes(recipes: Rezept[]): void {
         `;
         tableBody.appendChild(row);
     });
+
+
 }
