@@ -8,25 +8,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     return;
 });
 
-interface Rezept {
-    name: string;
-    beschreibung: string;
-    zubereitungsdauer: number;
-    bild: string;
-}
-
-
-async function fetchRecipes(): Promise<Rezept[]> {
-    try {
-        const response = await fetch('http://localhost:8080/api/allRezepte');
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching recipes:', error);
-        return [];
-    }
-}
-
 function displayRecipes(recipes: Rezept[]): void {
     const tableBody = document.getElementById('recipeTableBody');
 

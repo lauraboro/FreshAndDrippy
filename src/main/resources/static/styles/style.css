@@ -146,12 +146,11 @@ body {
     cursor: pointer;
     float: left;
     color: #fff;
-    margin-right: 50px;
     border-radius: 8px;
     border: 2px solid #fff;
-
-    height: 80%;
     padding: 12px 24px;
+    margin-right: 50px;
+    height: 80%;
     text-decoration: none;
     transition: background-color 0.2s ease;
     background-color: rgba(0, 0, 0, 0);
@@ -182,10 +181,6 @@ body {
 .Title a {
     font-size: 36px;
     font-weight: bold;
-}
-
-#About p {
-    font-size: 18px;
 }
 
 
@@ -287,23 +282,26 @@ li a:hover {
 }
 
 .Recipe .RecipeHeader {
-    height: 20%;
+    height: auto;
     width: 100%;
     padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
 .RecipeHeader .RecipePrepTime {
+    width: 20%;
     display: flex;
     align-items: center;
-    align-self: flex-start;
-    padding-left: 10px;
-    position: absolute;
-    margin-top: 20px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.RecipeHeader .RecipeInfoContainer {
+    width: 20%;
+    text-align: right;
 }
 
 .RecipePrepTime img {
@@ -318,6 +316,7 @@ li a:hover {
 }
 
 .Recipe .RecipeHeader .RecipeTitle {
+    width: 60%;
     font-size: 28px;
     font-weight: bold;
     text-decoration: underline;
@@ -329,11 +328,19 @@ li a:hover {
     width: 450px;
 }
 
+.Recipe .RecipeInfo {
+    cursor: pointer;
+    margin-right: 10px;
+    -webkit-user-drag: none;
+    width: 30px;
+    height: 30px;
+}
+
 .Recipe {
     width: 750px;
     height: 300px;
     border-radius: 10px;
-    box-shadow: 0px 0px 8px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 8px 10px rgba(0, 0, 0, 0.4);
     color: black;
     display: flex;
     overflow: hidden;
@@ -381,6 +388,45 @@ li a:hover {
     border: 2px solid #69d84f;
     background-color: #42a62b;
     color:white;
+}
+
+.Recipe .RecipeDescription {
+    color:black;
+    font-size: 18px;
+}
+
+.Recipe .RecipeIngredients {
+    color: dimgray;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.Recipe .RecipeFooter {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-top: auto;
+    align-items: end;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.Recipe .AddToCartButton {
+    padding: 12px;
+    background-color: #42a62b;
+    border: 2px solid #69d84f;
+    color: white;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: background-color 0.25s ease, border 0.25s ease;
+}
+
+.Recipe .AddToCartButton:hover {
+    background-color: #69d84f;
+    border: 2px solid #42a62b;
 }
 
 #RecipeList {

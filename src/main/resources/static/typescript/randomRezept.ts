@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", async function () {
-
-    console.log("Application loaded!");
-
     const recipe = await fetchRandomRecipe();
     displayRandomRecipe(recipe);
 
@@ -16,8 +13,12 @@ async function fetchRandomRecipe(): Promise<Rezept> {
     } catch (error) {
         console.error('Error fetching recipes:', error);
         return {
+            id: 0,
             name: '',
-            beschreibung: '', zubereitungsdauer: 0, bild: ''
+            beschreibung: '',
+            zubereitungsdauer: 0,
+            bild: '',
+            kategories: []
         };
     }
 }

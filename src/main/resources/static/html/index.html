@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../dist/static/typescript/app.js"></script>
     <script src="../dist/static/typescript/randomRezept.js"></script>
+    <script src="../dist/static/typescript/recipeList.js"></script>
 </head>
 <body>
     <div id="tabContainer" class="sticky">
@@ -42,7 +43,7 @@
         <div class="Title">
             <a>We are fresh! We are drippy!</a>
         </div>
-        <p style="padding-top: 15px">
+        <p style="padding-top: 15px; font-size: 18px">
             We deliver fresh ingredients alongside nice recipes directly to your doorstep by the click of a button! <br>
             Checkout our new daily offers right now!
         </p>
@@ -53,13 +54,20 @@
                 </div>
                 <div class="RecipeContent">
                     <div class="RecipeHeader">
-                        <a class="RecipeTitle" id="DailyRecipeTitle">Rezept</a>
                         <div class="RecipePrepTime">
                             <img src="images/clock.png" alt="time">
                             <a id="DailyRecipePrepTime">30min</a>
                         </div>
+                        <a class="RecipeTitle" id="DailyRecipeTitle">Rezept</a>
+                        <div class="RecipeInfoContainer">
+                            <img class="RecipeInfo" src="images/info.png" alt="Info">
+                        </div>
                     </div>
                     <p class="RecipeDescription" id="DailyRecipeDescription">Dieses wundertolle Rezept eines wundertollen 5 Sterne-Kochs sorgt bei der Zubereitung für umwogene Freude und bei Konsum für einen gewaltigen Gaumenschmaus</p>
+                    <p class="RecipeIngredients" id="DailyRecipeIngredients">3x Tomaten, 5x Schnittlauch, 1x deine Mum</p>
+                    <div class="RecipeFooter">
+                        <a class="AddToCartButton" id="AddDailyRecipeToCart">+ Add to cart</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -75,42 +83,7 @@
         </div>
         <div id="RecipeList">
             <div id="RecipeListContent">
-                <div class="Recipe">
-                    <div class="RecipeImage">
-                        <div class="RecipeImageGlow"></div>
-                    </div>
-                    <div class="RecipeContent">
-                        <a class="RecipeTitle">Rezept</a>
-                        <p class="RecipeDescription">Dieses wundertolle Rezept eines wundertollen 5 Sterne-Kochs sorgt bei der Zubereitung für umwogene Freude und bei Konsum für einen gewaltigen Gaumenschmaus</p>
-                    </div>
-                </div>
-                <div class="Recipe">
-                    <div class="RecipeImage">
-                        <div class="RecipeImageGlow"></div>
-                    </div>
-                    <div class="RecipeContent">
-                        <a class="RecipeTitle">Rezept</a>
-                        <p class="RecipeDescription">Dieses wundertolle Rezept eines wundertollen 5 Sterne-Kochs sorgt bei der Zubereitung für umwogene Freude und bei Konsum für einen gewaltigen Gaumenschmaus</p>
-                    </div>
-                </div>
-                <div class="Recipe">
-                    <div class="RecipeImage">
-                        <div class="RecipeImageGlow"></div>
-                    </div>
-                    <div class="RecipeContent">
-                        <a class="RecipeTitle">Rezept</a>
-                        <p class="RecipeDescription">Dieses wundertolle Rezept eines wundertollen 5 Sterne-Kochs sorgt bei der Zubereitung für umwogene Freude und bei Konsum für einen gewaltigen Gaumenschmaus</p>
-                    </div>
-                </div>
-                <div class="Recipe">
-                    <div class="RecipeImage">
-                        <div class="RecipeImageGlow"></div>
-                    </div>
-                    <div class="RecipeContent">
-                        <a class="RecipeTitle">Rezept</a>
-                        <p class="RecipeDescription">Dieses wundertolle Rezept eines wundertollen 5 Sterne-Kochs sorgt bei der Zubereitung für umwogene Freude und bei Konsum für einen gewaltigen Gaumenschmaus</p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

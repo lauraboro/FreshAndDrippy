@@ -16,19 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     });
 });
-function fetchRecipes() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const response = yield fetch('http://localhost:8080/api/allRezepte');
-            const data = yield response.json();
-            return data;
-        }
-        catch (error) {
-            console.error('Error fetching recipes:', error);
-            return [];
-        }
-    });
-}
 function displayRecipes(recipes) {
     const tableBody = document.getElementById('recipeTableBody');
     if (!tableBody) {
