@@ -30,7 +30,8 @@ function fetchRandomRecipe() {
                 beschreibung: '',
                 zubereitungsdauer: 0,
                 bild: '',
-                kategories: []
+                kategories: [],
+                zutats: []
             };
         }
     });

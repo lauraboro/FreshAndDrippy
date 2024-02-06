@@ -24,6 +24,7 @@ body {
 
 .shopping {
     margin-right: 50px;
+    cursor: pointer;
 }
 
 .container {
@@ -436,7 +437,8 @@ li a:hover {
     padding: 6px 12px;
     font-size: 18px;
     color: black;
-    border-radius: 10px;
+    margin: 0 5px;
+    border-radius: 30px;
     border: 2px solid #42a62b;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0);
@@ -448,6 +450,13 @@ li a:hover {
     color:white;
 }
 .RecipeFilterSelected {
+    padding: 6px 12px;
+    font-size: 18px;
+    margin: 0 5px;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    transition: border 0.25s ease, background-color 0.25s ease, color 0.25s ease;
     border: 2px solid #69d84f;
     background-color: #42a62b;
     color:white;

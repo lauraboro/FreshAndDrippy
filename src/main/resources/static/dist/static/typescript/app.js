@@ -3,6 +3,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Contact popup loaded");
     const openContactPopupButton = document.getElementById("OpenContactPopup");
+    const homeButton = document.getElementById("HomeButton");
+    const homeContent = document.getElementById("Home");
+    const recipeButton = document.getElementById("RecipesButton");
+    const recipeContent = document.getElementById("Recipes");
     const closeContactPopupButton = document.getElementById("CloseContactPopup");
     const contactPopupContainer = document.getElementById("ContactPopupContainer");
     const body = document.body;
@@ -14,6 +18,16 @@ document.addEventListener("DOMContentLoaded", function () {
         closeContactPopupButton.addEventListener("click", function () {
             contactPopupContainer.style.display = "none";
             body.classList.remove("no-scroll");
+        });
+    }
+    if (recipeButton && recipeContent) {
+        recipeButton.addEventListener("click", () => {
+            recipeContent.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+    if (homeButton && homeContent) {
+        homeButton.addEventListener("click", () => {
+            homeContent.scrollIntoView({ behavior: 'smooth' });
         });
     }
 });
