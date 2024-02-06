@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 interface Rezept {
+    id: number;
     name: string;
     beschreibung: string;
     zubereitungsdauer: number;
@@ -41,9 +42,12 @@ function displayRecipes(recipes: Rezept[]): void {
     recipes.forEach(recipe => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${recipe.name}</td>
+
+            <td><a href = 'http://localhost:8080/rezept/${recipe.id}'>${recipe.name}</a></td>
             <td>${recipe.beschreibung}</td>
             <td>${recipe.zubereitungsdauer}</td>
+            
+           
         `;
         tableBody.appendChild(row);
     });

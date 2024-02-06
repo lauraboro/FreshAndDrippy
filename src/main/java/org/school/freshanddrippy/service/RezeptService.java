@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -70,5 +71,14 @@ public class RezeptService {
     public Rezept getRandomRezept() {
 
         return rezeptRepository.findRandomRezept();
+    }
+
+    public Rezept findById(int id) throws RuntimeException {
+        Optional<Rezept> optionalRezept = Optional.ofNullable(rezeptRepository.findById(id));
+        if (optionalRezept.isPresent()) {
+            return optionalRezept.get();
+        } else {
+            throw new RuntimeException("Rezept not found with id: " + id);
+        }
     }
 }

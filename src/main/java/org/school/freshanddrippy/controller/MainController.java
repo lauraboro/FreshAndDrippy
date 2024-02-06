@@ -2,6 +2,7 @@ package org.school.freshanddrippy.controller;
 
 import org.school.freshanddrippy.dto.KategorieRequest;
 import org.school.freshanddrippy.dto.NeuesRezeptRequest;
+import org.school.freshanddrippy.dto.ZutatMengeDto;
 import org.school.freshanddrippy.entity.Kategorie;
 import org.school.freshanddrippy.entity.Rezept;
 import org.school.freshanddrippy.entity.Zutat;

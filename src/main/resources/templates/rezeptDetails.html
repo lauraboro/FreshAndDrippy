@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Fresh And Drippy</title>
+    <link href="../styles/style.css" rel="stylesheet">
+    <link href="../styles/recipesPage.css" rel="stylesheet">
+    <script src="../dist/static/typescript/recipeDetails.js"></script>
+</head>
+<body>
+<div id="tabContainer" class="sticky">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recipeDetails.html">Recipes</a></li>
+        <li><a>Contact</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+    <img id="star1" class="star" src="images/star.png"/>
+    <img id="logo" src="images/logo.png"/>
+    <img id="star2" class="star" src="images/star.png"/>
+    <a id="LoginButton">Login</a>
+</div>
+<h1>Recipe Details</h1>
+<div>
+    <h2>Recipe ID: [[${recipe.id}]]</h2>
+    <h3>Recipe Name: [[${recipe.name}]]</h3>
+</div>
+
+<input type="hidden" id="recipeId" th:value="${recipe.id}">
+
+<table id="zutatenTable">
+    <thead>
+    <tr>
+        <th>Menge</th>
+        <th>Einheit</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody id="zutatenTableBody"></tbody>
+</table>
+</body>
+</html>

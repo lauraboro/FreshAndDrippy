@@ -9,6 +9,11 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.init.ScriptUtils;
 
+
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+
 import javax.sql.DataSource;
 @SpringBootApplication
 public class FreshAndDrippyApplication {
@@ -27,5 +32,4 @@ public class FreshAndDrippyApplication {
             // ScriptUtils.executeSqlScript(dataSource.getConnection(), resource_init_proc);
         };
     }
-
 }

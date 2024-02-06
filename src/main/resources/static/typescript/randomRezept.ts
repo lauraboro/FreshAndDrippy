@@ -16,6 +16,7 @@ async function fetchRandomRecipe(): Promise<Rezept> {
     } catch (error) {
         console.error('Error fetching recipes:', error);
         return {
+            id: 0,
             name: '',
             beschreibung: '', zubereitungsdauer: 0, bild: ''
         };
@@ -23,7 +24,7 @@ async function fetchRandomRecipe(): Promise<Rezept> {
 }
 
 function displayRandomRecipe(recipe: Rezept): void {
-    const dailyRecipeName = document.getElementById('RecipeTitle');
+    const dailyRecipeName = document.getElementById('RecipeTitle') as HTMLLinkElement;
     const dailyRecipeDescription = document.getElementById('RecipeDescription');
     const dailyRecipeImage = document.getElementById('RecipeImage') as HTMLImageElement;
 
@@ -32,6 +33,7 @@ function displayRandomRecipe(recipe: Rezept): void {
 
     if (dailyRecipeName && dailyRecipeDescription && dailyRecipeImage) {
         dailyRecipeName.innerHTML = recipe.name;
+        dailyRecipeName.href = 'http://localhost:8080/rezept/'+recipe.id+'';
         dailyRecipeDescription.innerHTML = recipe.beschreibung + "<br><br>Zubereitungsdauer: " + recipe.zubereitungsdauer;
         dailyRecipeImage.src = recipe.bild ? recipe.bild : 'images/recepies/rezept_haehnchen_in_paprika_sahnesoße_05-e1554236259500-1624x1080.jpg';
 
