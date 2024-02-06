@@ -209,12 +209,11 @@ body {
     cursor: pointer;
     float: left;
     color: #fff;
-    margin-right: 50px;
     border-radius: 8px;
     border: 2px solid #fff;
-
-    height: 80%;
     padding: 12px 24px;
+    margin-right: 50px;
+    height: 80%;
     text-decoration: none;
     transition: background-color 0.2s ease;
     background-color: rgba(0, 0, 0, 0);
@@ -234,7 +233,7 @@ body {
     color: black;
 }
 
-#About #AboutTitle {
+.Title {
     padding: 10px;
     color: white;
     align-content: center;
@@ -242,13 +241,9 @@ body {
     background-color: #42a62b;
 }
 
-#About #AboutTitle a {
+.Title a {
     font-size: 36px;
     font-weight: bold;
-}
-
-#About p {
-    font-size: 18px;
 }
 
 
@@ -270,6 +265,7 @@ body {
 
 #Home #TextOverlay {
     position: absolute;
+    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -308,38 +304,206 @@ li a:hover {
 
 #DailyRecipe {
     width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
     display: flex;
     justify-content: center;
 }
 
-.Recipe img {
-    border-radius: 10px;
-    border: 2px solid #69d84f;
-    margin: 5px;
-    -webkit-user-drag: none;
+.Recipe .RecipeImage {
+    display: flex;
+    min-width: 300px;
+    height: 100%;
+    border-radius: 0 0 0 0;
+    box-shadow: 4px 0px 8px 0px rgba(0, 0, 0, 0.4);
+    background-image: url("../html/images/recipes/rezept1.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    transition: background-size 0.5s ease, border-radius 0.5s ease;
+    overflow: hidden;
 }
 
-.Recipe #RecipeTitle {
+.Recipe .RecipeImage:hover {
+    background-size: 120%;
+    border-radius: 0 15px 15px 0;
+}
+
+.Recipe .RecipeImageGlow {
+    -webkit-filter: blur(8px);
+    min-width: 200%;
+    height: 50%;
+    transform: translate(0, -120%);
+    opacity: 0.2;
+    background-color: white;
+    transition: transform 0.5s ease;
+}
+
+.Recipe .RecipeImage:hover .RecipeImageGlow {
+    transform: rotate(-20deg) translate(0, -50%);
+}
+
+.Recipe .RecipeHeader {
+    height: auto;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.RecipeHeader .RecipePrepTime {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.RecipeHeader .RecipeInfoContainer {
+    width: 20%;
+    text-align: right;
+}
+
+.RecipePrepTime img {
+    -webkit-user-drag: none;
+    width: 40px;
+    height: auto;
+    margin-right: 3px;
+}
+
+.RecipePrepTime a {
+    font-size: 14px;
+}
+
+.Recipe .RecipeHeader .RecipeTitle {
+    width: 60%;
     font-size: 28px;
     font-weight: bold;
-    padding-top: 10px;
     text-decoration: underline;
 }
 
-.Recipe #Content {
+.Recipe .RecipeContent {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 450px;
+}
+
+.Recipe .RecipeInfo {
+    cursor: pointer;
+    margin-right: 10px;
+    -webkit-user-drag: none;
+    width: 30px;
+    height: 30px;
 }
 
 .Recipe {
     width: 750px;
     height: 300px;
     border-radius: 10px;
-    border: 3px solid #69d84f;
+    box-shadow: 0 0 8px 10px rgba(0, 0, 0, 0.4);
     color: black;
     display: flex;
-    margin-bottom: 40px;
-    margin-top: 40px;
+    overflow: hidden;
+    margin: 20px;
     background-color: white;
+}
+
+#Recipes {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#RecipeFilterHeader {
+    width: auto;
+    height: auto;
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: center;
+    padding: 20px 5px 5px 5px;
+    border-radius: 10px;
+    box-shadow: 0 6px 5px 0 rgba(0, 0, 0, 0.4);
+}
+
+.RecipeFilter {
+    padding: 6px 12px;
+    font-size: 18px;
+    color: black;
+    border-radius: 10px;
+    border: 2px solid #42a62b;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    transition: border 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+.RecipeFilter:hover {
+    border: 2px solid #69d84f;
+    background-color: #42a62b;
+    color:white;
+}
+.RecipeFilterSelected {
+    border: 2px solid #69d84f;
+    background-color: #42a62b;
+    color:white;
+}
+
+.Recipe .RecipeDescription {
+    color:black;
+    font-size: 18px;
+}
+
+.Recipe .RecipeIngredients {
+    color: dimgray;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.Recipe .RecipeFooter {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-top: auto;
+    align-items: end;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.Recipe .AddToCartButton {
+    padding: 12px;
+    background-color: #42a62b;
+    border: 2px solid #69d84f;
+    color: white;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: background-color 0.25s ease, border 0.25s ease;
+}
+
+.Recipe .AddToCartButton:hover {
+    background-color: #69d84f;
+    border: 2px solid #42a62b;
+}
+
+#RecipeList {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: auto;
+}
+
+#RecipeListContent {
+    width: 90%;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
 }

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Your application logic goes here
     console.log("Application loaded!");
 
-    const words = ["delicious", "fresh", "drippy", "saucy", "nice", "yummy"];
+    const words = ["delicious", "fresh", "drippy", "saucy", "nice", "yummy", "sweet", "amazing", "tangy"];
     let currentWordIndex = 0;
 
     let currentText = words[0];
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateImagePosition() {
         const scrollPos = window.scrollY;
         // @ts-ignore
-        homeImageElement.style.backgroundPositionY = Math.min(50 + (scrollPos / 10), 100) + "%";
+        homeImageElement.style.backgroundPositionY = Math.min(50 + (scrollPos / 15), 100) + "%";
     }
 
     function writeText() {
@@ -74,6 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (currentIndex == 0) {
                 currentWordIndex = (currentWordIndex + 1) % words.length;
                 currentText = words[currentWordIndex];
+                if(Math.random() < 0.02)
+                    currentText = "gottlos";
                 delay = 2;
                 currentlyDeleting = false;
             }
