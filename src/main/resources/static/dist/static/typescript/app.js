@@ -97,16 +97,15 @@ function closeCart() {
         shoppingCart.classList.remove('cart-active');
     }
 }
-function addToCart() {
-    const dailyRecipeName = document.getElementById('RecipeTitle');
+function addToCart(id, name) {
     const quantity = document.getElementById("quantity");
     const totalPrice = document.getElementById("totalPrice");
     const cartList = document.getElementById("cartList");
-    if (!dailyRecipeName || !quantity || !cartList || !totalPrice) {
+    if (!quantity || !cartList || !totalPrice) {
         return;
     }
-    const recipeId = String(dailyRecipeName.dataset.id);
-    const recipeName = dailyRecipeName.innerHTML;
+    const recipeId = String(id);
+    const recipeName = name;
     let count = 0;
     console.log(recipeId, recipeName);
     //itemsInCart.push({id: parseInt(recipeId), name: recipeName});

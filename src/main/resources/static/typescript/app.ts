@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (currentIndex == 0) {
                 currentWordIndex = (currentWordIndex + 1) % words.length;
                 currentText = words[currentWordIndex];
-                if(Math.random() < 0.02)
+                if (Math.random() < 0.02)
                     currentText = "gottlos";
                 delay = 2;
                 currentlyDeleting = false;
@@ -114,17 +114,16 @@ function closeCart() {
     }
 }
 
-function addToCart() {
-    const dailyRecipeName = document.getElementById('RecipeTitle');
+function addToCart(id: number, name: string) {
     const quantity = document.getElementById("quantity");
     const totalPrice = document.getElementById("totalPrice");
     const cartList = document.getElementById("cartList");
 
-    if (!dailyRecipeName || !quantity || !cartList || !totalPrice) {
+    if (!quantity || !cartList || !totalPrice) {
         return;
     }
-    const recipeId = String(dailyRecipeName.dataset.id);
-    const recipeName = dailyRecipeName.innerHTML;
+    const recipeId = String(id);
+    const recipeName = name;
     let count = 0;
     console.log(recipeId, recipeName);
 
