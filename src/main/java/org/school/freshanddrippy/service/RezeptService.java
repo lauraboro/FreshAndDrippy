@@ -29,6 +29,10 @@ public class RezeptService {
         return rezeptRepository.findAll();
     }
 
+	public float getCosts(long rezeptId) {
+		return rezeptRepository.getCosts(rezeptId);
+	}
+
     public ResponseEntity<NeuesRezeptRequest> createRezept(NeuesRezeptRequest request) {
         try {
             Rezept rezept = new Rezept();

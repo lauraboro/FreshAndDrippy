@@ -38,6 +38,11 @@ public class MainController {
         return rezeptService.getAllRezepte();
     }
 
+	@GetMapping("/rezeptPreis/{recipeId}")
+	public float getRecipeCosts(@PathVariable Long recipeId) {
+		return rezeptService.getCosts(recipeId);
+	}
+
     @GetMapping("/allKategorien")
     public List<Kategorie> getAllKategorien() {
         return kategorieService.getAllKategorien();
