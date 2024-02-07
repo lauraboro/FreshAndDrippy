@@ -29,8 +29,6 @@ let rezepte: Rezept[] = [];
 let costs: number[] = [];
 
 document.addEventListener("DOMContentLoaded", async function () {
-
-
     const filterList = document.getElementById("RecipeFilterHeader");
 
     async function fetchCategories(): Promise<Kategorie[]> {
@@ -127,7 +125,6 @@ async function fetchCosts(recipes: Rezept[]) {
         try {
             const response = await fetch('http://localhost:8080/api/rezeptPreis/' + recipes[i].id);
             const data = await response.text();
-            console.log(data);
             costs.push(parseFloat(data));
         } catch {
             costs.push(0);
