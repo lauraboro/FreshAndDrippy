@@ -31,8 +31,7 @@ function fetchRandomRecipe() {
                 zubereitungsdauer: 0,
                 bild: '',
                 kategories: [],
-                zutats: [],
-                price: 0
+                zutats: []
             };
         }
     });

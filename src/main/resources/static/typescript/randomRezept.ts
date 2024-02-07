@@ -19,8 +19,7 @@ async function fetchRandomRecipe(): Promise<Rezept> {
             zubereitungsdauer: 0,
             bild: '',
             kategories: [],
-            zutats: [],
-            price: 0
+            zutats: []
         };
     }
 }

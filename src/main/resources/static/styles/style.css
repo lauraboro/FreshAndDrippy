@@ -224,7 +224,7 @@ body {
     background-color: rgb(105, 216, 79);
 }
 
-#About {
+#Daily {
     background-image: url("../html/images/about-background.png");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -515,4 +515,19 @@ li a:hover {
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
+}
+
+#PartnerList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 10px;
+    background-color: #69d84f;
+}
+
+.Partner {
+    -webkit-user-drag: none;
+    margin: 10px;
+    width: 20%;
+    height: 20%;
 }

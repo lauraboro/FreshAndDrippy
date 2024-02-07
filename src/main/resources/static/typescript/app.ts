@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const recipeButton = document.getElementById("RecipesButton");
     const recipeContent = document.getElementById("Recipes");
+
+    const aboutButton = document.getElementById("AboutButton");
+    const aboutContent = document.getElementById("About");
+
     const closeContactPopupButton = document.getElementById("CloseContactPopup");
     const contactPopupContainer = document.getElementById("ContactPopupContainer");
     const body = document.body;
@@ -33,6 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if(homeButton && homeContent) {
         homeButton.addEventListener("click", () => {
             homeContent.scrollIntoView({behavior: 'smooth'});
+        })
+    }
+
+    if(aboutButton && aboutContent) {
+        aboutButton.addEventListener("click", () => {
+            aboutContent.scrollIntoView({behavior: 'smooth'});
         })
     }
 });
