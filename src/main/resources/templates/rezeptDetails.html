@@ -2,29 +2,31 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fresh And Drippy</title>
-    <link href="../styles/style.css" rel="stylesheet">
-    <link href="../styles/recipesPage.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/recipesPage.css">
     <script src="../dist/static/typescript/recipeDetails.js"></script>
 </head>
 <body>
 <div id="tabContainer" class="sticky">
     <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="recipeDetails.html">Recipes</a></li>
+        <li><a href="../html/index.html">Home</a></li>
+        <li><a href="../html/recipeDetails.html">Recipes</a></li>
         <li><a>Contact</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="../html/about.html">About</a></li>
     </ul>
-    <img id="star1" class="star" src="images/star.png"/>
-    <img id="logo" src="images/logo.png"/>
-    <img id="star2" class="star" src="images/star.png"/>
+    <img id="star1" class="star" src="../html/images/star.png"/>
+    <img id="logo" src="../html/images/logo.png"/>
+    <img id="star2" class="star" src="../html/images/star.png"/>
     <a id="LoginButton">Login</a>
 </div>
-<h1>Recipe Details</h1>
+<br>
+<h1>[[${recipe.name}]]</h1>
 <div>
-    <h2>Recipe ID: [[${recipe.id}]]</h2>
-    <h3>Recipe Name: [[${recipe.name}]]</h3>
+    <p>Beschreibung: [[${recipe.beschreibung}]]</p>
+    <p>[[${recipe.zubereitungsdauer}]] Minuten Zubereitungszeit</p>
+    <img th:src="@{../html/${recipe.bild}}" th:alt="${recipe.bild}">
 </div>
 
 <input type="hidden" id="recipeId" th:value="${recipe.id}">
