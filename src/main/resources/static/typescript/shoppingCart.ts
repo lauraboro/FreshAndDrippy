@@ -1,4 +1,5 @@
 let itemsInCart: { id: number; name: string; menge: number }[] = [];
+let totalCost: number = 0;
 
 function openCart() {
     const body = document.body;
@@ -16,7 +17,7 @@ function closeCart() {
     }
 }
 
-function addToCart(id: number, name: string) {
+function addToCart(id: number, name: string, preis: number) {
     const quantity = document.getElementById("quantity");
     const totalPrice = document.getElementById("totalPrice");
     const cartList = document.getElementById("cartList");
@@ -43,7 +44,8 @@ function addToCart(id: number, name: string) {
         `;
     });
     quantity.innerHTML = String(count);
-    totalPrice.innerHTML = "hallo";
+    totalCost = parseFloat((totalCost + preis).toFixed(2));
+    totalPrice.innerHTML = `Gesamtsumme: ` + totalCost.toString() + `€`;
 }
 
 

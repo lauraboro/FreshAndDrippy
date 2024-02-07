@@ -86,7 +86,7 @@ function registerAddToCartButtons(rezepte: Rezept[]) {
         const addToCartButton = document.getElementById("AddRecipeToCart" + rezept.id);
         if (addToCartButton) {
             addToCartButton.addEventListener("click", function () {
-                addToCart(rezept.id, rezept.name)
+                addToCart(rezept.id, rezept.name, costs[rezepte.indexOf(rezept)])
             })
         }
     })
@@ -134,13 +134,14 @@ async function fetchCosts(recipes: Rezept[]) {
 
 function containsFilter(id: number) {
     for (let i = 0; i < selectedFiltes.length; i++) {
-        if(selectedFiltes[i] == id) return true;
+        if (selectedFiltes[i] == id) return true;
     }
     return false;
 }
+
 function removeFilter(id: number) {
     const index = selectedFiltes.indexOf(id);
-    if(index > -1) {
+    if (index > -1) {
         selectedFiltes.splice(index, 1);
     }
 }

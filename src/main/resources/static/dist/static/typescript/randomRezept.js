@@ -49,7 +49,7 @@ function displayRandomRecipe(recipe) {
         dailyRecipePrepTime.innerHTML = recipe.zubereitungsdauer + "min";
         dailyRecipeImage.style.backgroundImage = recipe.bild ? "url(" + recipe.bild + ")" : 'url(../html/images/recepies/rezept_haehnchen_in_paprika_sahnesoße_05-e1554236259500-1624x1080.jpg)';
         addToCartButton.addEventListener("click", function () {
-            addToCart(recipe.id, recipe.name);
+            addToCart(recipe.id, recipe.name, 0);
         });
     }
     else {
