@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Admin-tool</title>
+    <link href="../styles/admin.css" rel="stylesheet">
+    <script src="../dist/static/typescript/admin-ingredients.js"></script>
+</head>
+<body>
+<div class="sticky" id="tabContainer">
+    <ul>
+        <li><a href="admin-recipes.html">Recipes</a></li>
+        <li><a class="selectedTab" href="admin-ingredients.html">Ingredients</a></li>
+        <li><a href="admin-categories.html">Categories</a></li>
+        <li><a href="admin-restrictions.html">Restrictions</a></li>
+    </ul>
+    <a href="index.html" id="BackToMainPageButton">Back</a>
+</div>
+<div class="admin-menu" id="IngredientsMenu">
+    <h1 style="align-self: center">Ingredients</h1>
+    <div class="admin-list" id="IngredientList" style="width: 50%">
+        <div class="admin-list-content" id="IngredientListContent">
+        </div>
+        <div class="adminTableEditBar" id="IngredientEditBar">
+            <a class="adminTableAddButton" id="AddIngredientButton">Add Ingredient</a>
+        </div>
+    </div>
+</div>
+<div class="popup-container" id="EditIngredientListPopup">
+    <div id="IngredientEditContent">
+        <span class="close" id="CloseEditIngredientListPopup">&times;</span>
+        <h2 id="IngredientEditPopupTitle">Edit</h2>
+        <label for="IngredientEditNameText">Name:</label>
+        <input id="IngredientEditNameText" type="text"/>
+        <label for="IngredientMultiselect">Restrictions:</label>
+        <select id="IngredientMultiselect" multiple style="width: 50%; height: 100%"></select>
+        <div id="EditBar">
+            <a class="admin-confirm-button" id="IngredientConfirmEditButton">Confirm</a>
+        </div>
+
+    </div>
+</div>
+</body>

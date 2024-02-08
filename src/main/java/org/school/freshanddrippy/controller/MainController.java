@@ -3,6 +3,7 @@ package org.school.freshanddrippy.controller;
 import org.school.freshanddrippy.dto.BeschraenkungRequest;
 import org.school.freshanddrippy.dto.KategorieRequest;
 import org.school.freshanddrippy.dto.NeuesRezeptRequest;
+import org.school.freshanddrippy.dto.ZutatRequest;
 import org.school.freshanddrippy.entity.Beschraenkung;
 import org.school.freshanddrippy.entity.Kategorie;
 import org.school.freshanddrippy.entity.Rezept;
@@ -65,6 +66,12 @@ public class MainController {
         beschraenkungService.saveBeschraenkung(beschraenkungRequest);
 
         return ResponseEntity.ok("Kategorie saved");
+    }
+
+    @PostMapping("/sendZutatUpdate")
+    public ResponseEntity<String> receiveKategorie(@RequestBody ZutatRequest zutatRequest) {
+        zutatService.saveZutat(zutatRequest);
+        return ResponseEntity.ok("Zutat saved");
     }
 
     @GetMapping("/randomRezept")

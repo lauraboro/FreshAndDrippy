@@ -287,6 +287,20 @@ li a:hover {
     align-content: center;
 }
 
+#IngredientEditContent {
+    width: 30%;
+    height: 75%;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
 #CategoryEditContent label {
     margin: 5px;
     font-weight: bold;
