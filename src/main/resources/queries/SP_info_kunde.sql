@@ -1,5 +1,4 @@
 -- Information über Kunde anhand seiner Email (Stored Procedure 3/3)
-DROP FUNCTION retrieve_customer_information(email_to_check text);
 CREATE OR REPLACE FUNCTION retrieve_customer_information(email_to_check VARCHAR(300))
     RETURNS TABLE (
                       kunde_name VARCHAR(50),
@@ -53,6 +52,10 @@ BEGIN
     DELETE FROM kunde_adresse WHERE kunde_id = kunde_id_to_delete;
 
     -- Delete Bestellungen associated with the Kunde
+    WITH bestellung_to_delete AS (SELECT id FROM bestellung WHERE kunde_id = kunde_id_to_delete)
+    DELETE FROM bestellung_rezept WHERE bestellung_id = bestellung_to_delete;
+
+    -- Delete Bestellungen associated with the Kunde
     DELETE FROM bestellung WHERE kunde_id = kunde_id_to_delete;
 
     -- Delete Kunde
@@ -66,3 +69,5 @@ $$ LANGUAGE plpgsql;
 
 
 SELECT * FROM retrieve_customer_information('k.wellensteyn@yahoo.de');
+
+SELECT delete_customer_information('k.wellensteyn@yahoo.de')

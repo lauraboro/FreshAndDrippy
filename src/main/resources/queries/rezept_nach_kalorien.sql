@@ -17,4 +17,4 @@ FROM
         JOIN
     rezept_kalorien rk ON r.id = rk.rezept_id
 WHERE
-    rk.gesamt_kalorien <= 1000;
+    rk.gesamt_kalorien <= 5000;

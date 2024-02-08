@@ -5,7 +5,7 @@ DECLARE
     order_total NUMERIC;
 BEGIN
     -- Calculate the total price for the order including tax and margin
-    SELECT COALESCE(SUM(z.nettopreis), 0) * 1.19 * 1.2 -- Add Mehrwertsteuer and margin
+    SELECT  SUM(z.nettopreis * rz.menge * br.menge), 0 * 1.19 * 1.2 -- Add Mehrwertsteuer and margin
     INTO order_total
     FROM bestellung_rezept br
              JOIN rezept_zutat rz ON br.rezept_id = rz.rezept_id
@@ -33,3 +33,5 @@ END;
 $$ LANGUAGE plpgsql;
 
 SELECT calculate_price_for_all_orders();
+
+SELECT calculate_order_price(2);
