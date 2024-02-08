@@ -165,7 +165,7 @@ function updateRecipeImages(recipes: Rezept[]) {
     recipes.forEach(recipe => {
         const recipeImage = document.getElementById("RecipeImage" + recipe.id);
 
-        if (recipeImage) {
+        if (recipeImage && recipe.bild.length > 0) {
             recipeImage.style.backgroundImage = "url(" + recipe.bild + ")";
         }
     })
