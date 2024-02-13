@@ -120,15 +120,22 @@ async function fetchRecipes(): Promise<Rezept[]> {
         return [];
     }
 }
+
+async function getCosts(recipe: Rezept) {
+    try {
+        const response = await fetch('http://localhost:8080/api/rezeptPreis/' + recipe.id);
+        const data = await response.text()
+        return parseFloat(data);
+    } catch(error) {
+        console.error('Error fetching costs for recipe:', error);
+        return 0;
+    }
+}
+
 async function fetchCosts(recipes: Rezept[]) {
     for (let i = 0; i < recipes.length; i++) {
-        try {
-            const response = await fetch('http://localhost:8080/api/rezeptPreis/' + recipes[i].id);
-            const data = await response.text();
-            costs.push(parseFloat(data));
-        } catch {
-            costs.push(0);
-        }
+        const recipeCosts = await getCosts(recipes[i]);
+        costs.push(recipeCosts);
     }
 }
 
@@ -171,7 +178,7 @@ function updateRecipeImages(recipes: Rezept[]) {
     })
 }
 
-function getIngredients(recipe: Rezept) : String {
+function getIngredients(recipe: Rezept) : string {
     let result = "";
     for (let i = 0; i < recipe.zutats.length; i++) {
         result += recipe.zutats[i].menge + "-" + recipe.zutats[i].zutat.einheit + " " + recipe.zutats[i].zutat.name;
@@ -182,7 +189,7 @@ function getIngredients(recipe: Rezept) : String {
     return result;
 }
 
-function getPricetag(price: number) : String {
+function getPricetag(price: number) : string {
     let result = price.toString();
     let cents = result.split(".");
     result = cents[0];

@@ -11,7 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 document.addEventListener("DOMContentLoaded", function () {
     return __awaiter(this, void 0, void 0, function* () {
         const recipe = yield fetchRandomRecipe();
-        displayRandomRecipe(recipe);
+        const costs = yield getCosts(recipe);
+        displayRandomRecipe(recipe, costs);
         return;
     });
 });
@@ -36,20 +37,23 @@ function fetchRandomRecipe() {
         }
     });
 }
-function displayRandomRecipe(recipe) {
+function displayRandomRecipe(recipe, costs) {
     const dailyRecipeName = document.getElementById('DailyRecipeTitle');
     const dailyRecipeDescription = document.getElementById('DailyRecipeDescription');
+    const dailyRecipeIngredients = document.getElementById('DailyRecipeIngredients');
     const dailyRecipePrepTime = document.getElementById('DailyRecipePrepTime');
     const dailyRecipeImage = document.getElementById('DailyRecipeImage');
     const addToCartButton = document.getElementById("AddDailyRecipeToCart");
     console.log(recipe.bild);
-    if (dailyRecipeName && dailyRecipeDescription && dailyRecipeImage && dailyRecipePrepTime && addToCartButton) {
+    if (dailyRecipeName && dailyRecipeDescription && dailyRecipeImage && dailyRecipePrepTime && addToCartButton && dailyRecipeIngredients) {
         dailyRecipeName.innerHTML = recipe.name;
         dailyRecipeDescription.innerHTML = recipe.beschreibung;
+        dailyRecipeIngredients.innerHTML = getIngredients(recipe);
         dailyRecipePrepTime.innerHTML = recipe.zubereitungsdauer + "min";
         dailyRecipeImage.style.backgroundImage = recipe.bild ? "url(" + recipe.bild + ")" : 'url(../html/images/recepies/rezept_haehnchen_in_paprika_sahnesoße_05-e1554236259500-1624x1080.jpg)';
+        addToCartButton.innerHTML = '+ ' + getPricetag(costs) + '€';
         addToCartButton.addEventListener("click", function () {
-            addToCart(recipe.id, recipe.name, 0);
+            addToCart(recipe.id, recipe.name, costs);
         });
     }
     else {
